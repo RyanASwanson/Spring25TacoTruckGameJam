@@ -94,6 +94,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerCollider: {fileID: 2785305078985961752}
   _hitboxDepth: 20
+  _wallBlockers:
+    serializedVersion: 2
+    m_Bits: 193
 --- !u!1 &1982683967352568466
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,7 +139,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5907361723419578487}
   - component: {fileID: 2785305078985961752}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}

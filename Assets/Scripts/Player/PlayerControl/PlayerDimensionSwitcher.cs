@@ -7,6 +7,7 @@ public class PlayerDimensionSwitcher : MonoBehaviour
 {
     [SerializeField] private BoxCollider _playerCollider;
     [SerializeField] private float _hitboxDepth;
+    [SerializeField] private LayerMask _wallBlockers;
 
     private float _defaultHitboxDepth;
 
@@ -26,12 +27,38 @@ public class PlayerDimensionSwitcher : MonoBehaviour
 
     private void SwitchTo2D()
     {
+        DetermineNearestWall();
         _playerCollider.size = new Vector3(_playerCollider.size.x, _playerCollider.size.y, _hitboxDepth);
     }
 
     private void DetermineNearestWall()
     {
-        //float dist = 
+        float dist = _hitboxDepth;
+        if(Physics.Raycast(transform.position, Vector3.back, out RaycastHit hit, _hitboxDepth, _wallBlockers))
+        {
+            print(hit.transform.gameObject.name);
+            float newDist = Vector3.Distance(transform.position, hit.point);
+            if (newDist < dist)
+            {
+                dist = newDist;
+            }
+        }
+
+        if (Physics.Raycast(transform.position, Vector3.forward, out RaycastHit hit2, _hitboxDepth, _wallBlockers))
+        {
+            print(hit2.transform.gameObject.name);
+            float newDist = Vector3.Distance(transform.position, hit.point);
+            if (newDist < dist)
+            {
+                dist = newDist;
+            }
+        }
+
+        Debug.DrawRay(transform.position, Vector3.forward, Color.red, 5);
+        
+        
+
+        print(dist);
     }
 
     private void SwitchTo3D()
