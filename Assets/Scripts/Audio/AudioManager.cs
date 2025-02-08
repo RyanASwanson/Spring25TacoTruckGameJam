@@ -8,7 +8,7 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
 
-    [SerializeField] private Sound[] _sounds;
+    public Sound[] _sounds;
 
     private void Awake()
     {
@@ -25,6 +25,7 @@ public class AudioManager : MonoBehaviour
             sound.source.clip = sound.clip;
             sound.source.volume = sound.volume;
             sound.source.pitch = sound.pitch;
+            sound.source.loop = sound.shouldLoop;
         }
     }
 
@@ -32,8 +33,8 @@ public class AudioManager : MonoBehaviour
     {
         Sound s = Array.Find(_sounds, sound => sound.soundName == name);
 
-        if (s != null) { return; }
-
+        //if (s != null) { return; }
+        Debug.Log("Play One");
         s.source.PlayOneShot(s.clip);
     }
 
@@ -41,8 +42,8 @@ public class AudioManager : MonoBehaviour
     {
         Sound s = Array.Find(_sounds, sound => sound.soundName == name);
 
-        if (s != null) { return; }
-
+        //if (s != null) { return; }
+        Debug.Log("Play sound");
         s.source.Play();
     }
 
@@ -50,8 +51,8 @@ public class AudioManager : MonoBehaviour
     {
         Sound s = Array.Find(_sounds, sound => sound.soundName == name);
 
-        if (s != null) { return; }
-
+        //if (s != null) { return; }
+        Debug.Log("Stop sound");
         s.source.Stop();
     }
 }

@@ -2,15 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class Sound : MonoBehaviour
+[CreateAssetMenu(menuName = "Sound")]
+public class Sound : ScriptableObject
 {
     public string soundName;
 
-    public AudioClip clip; 
+    public AudioClip clip;
 
+    [Range(0.1f, 1f)]
     public float volume;
+    [Range(0.1f, 3f)]
     public float pitch;
+
+    public bool shouldLoop;
 
     [HideInInspector]
     public AudioSource source;
