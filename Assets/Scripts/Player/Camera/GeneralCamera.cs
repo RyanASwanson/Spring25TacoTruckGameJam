@@ -10,9 +10,11 @@ public class GeneralCamera : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator FollowPlayer()
     {
-        
+        while(true)
+        {
+
+        }
     }
 }
