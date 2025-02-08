@@ -27,38 +27,54 @@ public class PlayerDimensionSwitcher : MonoBehaviour
 
     private void SwitchTo2D()
     {
-        DetermineNearestWall();
-        _playerCollider.size = new Vector3(_playerCollider.size.x, _playerCollider.size.y, _hitboxDepth);
+        
+        
     }
 
-    private void DetermineNearestWall()
+    private void Update()
+    {
+        if(!CameraSwitching.IsIn3D)
+        {
+            _playerCollider.size = new Vector3(_playerCollider.size.x, _playerCollider.size.y, DetermineNearestWall() * .95f);
+        }
+    }
+
+    private float DetermineNearestWall()
     {
         float dist = _hitboxDepth;
-        if(Physics.Raycast(transform.position, Vector3.back, out RaycastHit hit, _hitboxDepth, _wallBlockers))
+        if (Physics.BoxCast(transform.position, _playerCollider.size*.95f, Vector3.back, out RaycastHit hit, Quaternion.identity, _hitboxDepth, _wallBlockers))
         {
-            print(hit.transform.gameObject.name);
+            print("Check");
             float newDist = Vector3.Distance(transform.position, hit.point);
             if (newDist < dist)
             {
                 dist = newDist;
             }
         }
-
-        if (Physics.Raycast(transform.position, Vector3.forward, out RaycastHit hit2, _hitboxDepth, _wallBlockers))
+        if (Physics.BoxCast(transform.position, _playerCollider.size*.95f, Vector3.forward, out RaycastHit hit1, Quaternion.identity, _hitboxDepth, _wallBlockers))
         {
-            print(hit2.transform.gameObject.name);
-            float newDist = Vector3.Distance(transform.position, hit.point);
+            print("Check1");
+            float newDist = Vector3.Distance(transform.position, hit1.point);
             if (newDist < dist)
             {
                 dist = newDist;
             }
+            print(newDist);
         }
+        /*if(Physics.Raycast(transform.position, Vector3.back, out RaycastHit hit, _hitboxDepth, _wallBlockers))
+        {
+            
+        }*/
 
-        Debug.DrawRay(transform.position, Vector3.forward, Color.red, 5);
-        
-        
-
-        print(dist);
+        /*if (Physics.Raycast(transform.position, Vector3.forward, out RaycastHit hit2, _hitboxDepth, _wallBlockers))
+        {
+            float newDist = Vector3.Distance(transform.position, hit2.point);
+            if (newDist < dist)
+            {
+                dist = newDist;
+            }
+        }*/
+        return dist;
     }
 
     private void SwitchTo3D()
