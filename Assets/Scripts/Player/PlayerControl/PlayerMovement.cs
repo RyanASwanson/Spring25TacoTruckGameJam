@@ -37,6 +37,8 @@ public class PlayerMovement : MonoBehaviour
     private bool _jumpQueued = false;
     private bool _atWallMax = false;
 
+    private bool _inAir = false;
+
     private bool _wallMaxApplied = false;
 
     [SerializeField] private float _regrabWallWait;
@@ -120,6 +122,10 @@ public class PlayerMovement : MonoBehaviour
         if (Physics.Raycast(transform.position, Vector2.down, .75f, LayerMask.GetMask(FLOOR_LAYER)) ||
             Physics.Raycast(transform.position, Vector2.down, .75f, LayerMask.GetMask(CLIMBABLE_WALL_LAYER)))
         {
+            if (!_canJump)
+            {
+                Landed();
+            }
             _canJump = true;
         }
         else
@@ -130,6 +136,12 @@ public class PlayerMovement : MonoBehaviour
         _movementState = PlayerMovementState.Walk;
     }
 
+    private void Landed()
+    {
+        Tween.PunchScale(transform.GetChild(0).GetChild(0), new Vector3(0, -.8f, 0), .15f);
+        //Tween.PunchLocalRotation(transform.GetChild(0).GetChild(0), new Vector3(0, 0, 30), .5f);
+    }
+
     private void WallCheck()
     {
         if (!_canClimb || _movementState == PlayerMovementState.Ragdoll) return;
@@ -138,16 +150,27 @@ public class PlayerMovement : MonoBehaviour
 
         if (WallRayCast(out hit))
         {
+            if(_movementState != PlayerMovementState.Climb)
+            {
+                GameObject go = transform.GetChild(0).GetChild(0).GetChild(0).transform.gameObject;
+                Tween.LocalEulerAngles(go.transform, Vector3.zero, new Vector3(-90, 0, 0), .4f);
+            }
+
             _movementState = PlayerMovementState.Climb;
             _rigidBody.useGravity = false;
 
-
+            //transform.GetChild(0).GetChild(0).GetChild(0).transform.localEulerAngles = hit.normal;
+            //transform.GetChild(0).GetChild(0).GetChild(0).transform.localEulerAngles = new Vector3(-90,0,0);
+            
         }
         else if (_movementState == PlayerMovementState.Climb)
         {
             _movementState = PlayerMovementState.Walk;
             _rigidBody.useGravity = true;
             _rigidBody.AddForce(_climbMantleSpeed * Vector3.up);
+
+            GameObject go = transform.GetChild(0).GetChild(0).GetChild(0).transform.gameObject;
+            Tween.LocalEulerAngles(go.transform, new Vector3(-90, 0, 0), Vector3.zero,.4f);
         }
     }
 
@@ -163,7 +186,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer(FLOOR_LAYER))
         {
-            if (collision.GetContact(collision.contactCount-1).point.y > transform.position.y - .3f) return;
+            if (collision.GetContact(collision.contactCount-1).point.y > transform.position.y - .2f) return;
 
             if(!CameraSwitching.IsIn3D && collision.gameObject != _lastCollisionObject)
             {
@@ -198,6 +221,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
+            transform.GetChild(0).GetChild(0).GetChild(0).transform.localEulerAngles = Vector3.zero;
             if (!CameraSwitching.IsIn3D)
             {
                 controlDir.y = 0;
