@@ -15,7 +15,7 @@ public class PlayerDimensionSwitcher : MonoBehaviour
     void Start()
     {
         _defaultHitboxDepth = _playerCollider.size.z;
-        _playerCollider.size = new Vector3(_playerCollider.size.x, _playerCollider.size.y, _hitboxDepth);
+        Set2DScale();
         SubscribeToEvents();
     }
 
@@ -35,32 +35,37 @@ public class PlayerDimensionSwitcher : MonoBehaviour
     {
         if(!CameraSwitching.IsIn3D)
         {
-            _playerCollider.size = new Vector3(_playerCollider.size.x, _playerCollider.size.y, DetermineNearestWall() * .95f);
+            Set2DScale();
         }
+    }
+
+    private void Set2DScale()
+    {
+        _playerCollider.size = new Vector3(_playerCollider.size.x, _playerCollider.size.y, DetermineNearestWall() * 1.97f);
     }
 
     private float DetermineNearestWall()
     {
         float dist = _hitboxDepth;
-        if (Physics.BoxCast(transform.position, _playerCollider.size*.95f, Vector3.back, out RaycastHit hit, Quaternion.identity, _hitboxDepth, _wallBlockers))
+        if (Physics.BoxCast(transform.position, Vector3.one*.3f, Vector3.back, out RaycastHit hit, Quaternion.identity, _hitboxDepth, _wallBlockers))
         {
-            print("Check");
             float newDist = Vector3.Distance(transform.position, hit.point);
             if (newDist < dist)
             {
                 dist = newDist;
             }
         }
-        if (Physics.BoxCast(transform.position, _playerCollider.size*.95f, Vector3.forward, out RaycastHit hit1, Quaternion.identity, _hitboxDepth, _wallBlockers))
+        if (Physics.BoxCast(transform.position, Vector3.one*.3f, Vector3.forward, out RaycastHit hit1, Quaternion.identity, _hitboxDepth, _wallBlockers))
         {
-            print("Check1");
             float newDist = Vector3.Distance(transform.position, hit1.point);
             if (newDist < dist)
             {
                 dist = newDist;
             }
-            print(newDist);
+            //print(newDist);
         }
+
+        Debug.DrawLine(transform.position, transform.position + (Vector3.forward * _hitboxDepth),Color.red,2f);
         /*if(Physics.Raycast(transform.position, Vector3.back, out RaycastHit hit, _hitboxDepth, _wallBlockers))
         {
             
@@ -74,11 +79,12 @@ public class PlayerDimensionSwitcher : MonoBehaviour
                 dist = newDist;
             }
         }*/
+
         return dist;
     }
 
     private void SwitchTo3D()
     {
-        _playerCollider.size = new Vector3(_playerCollider.size.x, _playerCollider.size.y, _defaultHitboxDepth);
+        _playerCollider.size = new Vector3(1,1,1);
     }
 }
