@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GeneralCamera : MonoBehaviour
 {
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +16,7 @@ public class GeneralCamera : MonoBehaviour
     {
         while(true)
         {
-            transform.position = new Vector3(PlayerMovement.Instance.transform.position.x, transform.position.y, transform.position.z);
+            transform.position = PlayerMovement.Instance.transform.position;
             yield return null;
         }
     }
