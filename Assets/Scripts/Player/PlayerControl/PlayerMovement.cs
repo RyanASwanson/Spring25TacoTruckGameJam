@@ -23,6 +23,8 @@ public class PlayerMovement : MonoBehaviour
     private bool _canJump = true;
     private bool _jumpQueued = false;
 
+    private const string FLOOR_LAYER = "Floor";
+
     public static PlayerMovement Instance;
 
     // Start is called before the first frame update
@@ -80,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (Physics.Raycast(transform.position, Vector2.down, 1.75f, LayerMask.GetMask("Floor")))
+        if (Physics.Raycast(transform.position, Vector2.down, 1.75f, LayerMask.GetMask(FLOOR_LAYER)))
         {
             _canJump = true;
         }
@@ -88,6 +90,11 @@ public class PlayerMovement : MonoBehaviour
         {
             _canJump = false;
         }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        
     }
 
     private void FixedUpdate()
