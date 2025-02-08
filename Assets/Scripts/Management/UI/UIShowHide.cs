@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class UIShowHide : MonoBehaviour
 {
     [SerializeField] private CanvasGroup _associatedUI;
+    [SerializeField] private bool _changeGroupAlpha;
 
     [Header("Animation")]
     [SerializeField] private bool _animateUI;
@@ -26,7 +27,8 @@ public class UIShowHide : MonoBehaviour
     {
         _showingAssociatedUI = !_showingAssociatedUI;
 
-        _associatedUI.alpha = _showingAssociatedUI ? 1 : 0;
+        if(_changeGroupAlpha)
+            _associatedUI.alpha = _showingAssociatedUI ? 1 : 0;
 
         MainMenuController.Instance.ShowingMainMenuUI = _showingAssociatedUI ? this : null;
 
