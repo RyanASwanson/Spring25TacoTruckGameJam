@@ -8,7 +8,7 @@ public class CameraSwitching : MonoBehaviour
     [SerializeField] private GameObject _2DCamera;
     [SerializeField] private GameObject _3DCamera;
 
-    internal bool IsIn3D = false;
+    internal static bool IsIn3D = false;
 
     private PlayerCameraInputActionMap _playerCameraInput;
 
@@ -30,5 +30,10 @@ public class CameraSwitching : MonoBehaviour
         IsIn3D = !IsIn3D;
         _2DCamera.SetActive(!IsIn3D);
         _3DCamera.SetActive(IsIn3D);
+
+        if (IsIn3D)
+        {
+            
+        }
     }
 }
