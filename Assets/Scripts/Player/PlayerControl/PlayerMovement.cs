@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody _rigidBody;
 
     private Vector2 controlDir;
-    private Vector3 _movementInpulse;
+    private Vector2 lastMovementDir;
 
     private PlayerCameraInputActionMap _playerCameraInput;
 
@@ -42,7 +42,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void PlayerMovementInput(InputAction.CallbackContext context)
     {
-        controlDir = context.ReadValue<Vector2>();
+        Vector2 tempDir = context.ReadValue<Vector2>();
+        if (tempDir != controlDir)
+        {
+            lastMovementDir = controlDir;
+            controlDir = tempDir;
+        }
     }
 
     private void HaltMovement()
