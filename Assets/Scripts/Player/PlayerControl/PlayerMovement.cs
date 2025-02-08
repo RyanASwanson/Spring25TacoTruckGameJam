@@ -57,6 +57,7 @@ public class PlayerMovement : MonoBehaviour
     public static PlayerMovement Instance;
 
     private bool _stretched = false;
+    private bool _isAnimatingMovement = false;
 
     // Start is called before the first frame update
     void Awake()
@@ -270,27 +271,33 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator MovementAnimation()
     {
-        while (true)
+        if (!_isAnimatingMovement)
         {
-            if (!_stretched)
+            _isAnimatingMovement = true;
+
+            while (true)
             {
-                _stretched = true;
-                AudioManager.Instance.PlayOneShotSound("Move1");
-                yield return Tween.Scale(transform.GetChild(0).GetChild(0),
-                    new Vector3(1.2f, .8f, 1.2f), _moveAnimSpeed).ToYieldInstruction();
-            }
-            else
-            {
-                _stretched = false;
-                AudioManager.Instance.PlayOneShotSound("Move2");
-                yield return Tween.Scale(transform.GetChild(0).GetChild(0),
-                    new Vector3(1f, 1f, 1f), _moveAnimSpeed).ToYieldInstruction();
+                if (!_stretched)
+                {
+                    _stretched = true;
+                    AudioManager.Instance.PlayOneShotSound("Move1");
+                    yield return Tween.Scale(transform.GetChild(0).GetChild(0),
+                        new Vector3(1.2f, .8f, 1.2f), _moveAnimSpeed).ToYieldInstruction();
+                }
+                else
+                {
+                    _stretched = false;
+                    AudioManager.Instance.PlayOneShotSound("Move2");
+                    yield return Tween.Scale(transform.GetChild(0).GetChild(0),
+                        new Vector3(1f, 1f, 1f), _moveAnimSpeed).ToYieldInstruction();
+                }
             }
         }
     }
 
     private void ResetStretch()
     {
+        _isAnimatingMovement = false;
         _stretched = false;
         Tween.Scale(transform.GetChild(0).GetChild(0), new Vector3(1f, 1f, 1f), .3f, Ease.Default, 1, CycleMode.Yoyo);
     }
