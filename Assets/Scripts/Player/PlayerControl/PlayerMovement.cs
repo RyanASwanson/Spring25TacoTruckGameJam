@@ -138,7 +138,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool WallRayCast()
     {
-        return Physics.Raycast(transform.position, transform.forward, .75f, LayerMask.GetMask(CLIMBABLE_WALL_LAYER));
+        return Physics.Raycast(transform.position, transform.GetChild(0).forward, 0.75f, LayerMask.GetMask(CLIMBABLE_WALL_LAYER));
     }
 
     private void OnCollisionEnter(Collision collision)
