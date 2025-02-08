@@ -59,7 +59,8 @@ public class DialogueManager : MonoBehaviour
             GameObject newestDialogueGameObject = Instantiate(DialoguePrefab, transform);
             newestDialogueGameObject.GetComponent<DialogueFunctionality>().PlayDialogue(individualDialogue);
             yield return new WaitForSeconds(individualDialogue.DialogueLength);
-            Destroy(newestDialogueGameObject);
+
+            newestDialogueGameObject.GetComponent<DialogueFunctionality>().OutroAnimation();
 
             _isDialogueActive = false;
 
