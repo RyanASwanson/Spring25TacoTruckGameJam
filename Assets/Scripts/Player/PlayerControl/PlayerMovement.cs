@@ -24,19 +24,20 @@ public class PlayerMovement : MonoBehaviour
         _playerCameraInput = new PlayerCameraInputActionMap();
         _playerCameraInput.Camera.Enable();
         _playerCameraInput.Player.Enable();
-        _playerCameraInput.Player.Movement.started += PlayerMovementInput;
+        _playerCameraInput.Player.Movement.performed += PlayerMovementInput;
         _playerCameraInput.Player.Movement.canceled += ctx => HaltMovement();
     }
 
     private void OnDestroy()
     {
-        _playerCameraInput.Player.Movement.started -= PlayerMovementInput;
+        _playerCameraInput.Player.Movement.performed -= PlayerMovementInput;
         _playerCameraInput.Player.Movement.canceled -= ctx => HaltMovement();
     }
 
     private void PlayerMovementInput(InputAction.CallbackContext context)
     {
         controlDir = context.ReadValue<Vector2>();
+        Debug.Log(controlDir);
     }
 
     private void HaltMovement()
@@ -47,14 +48,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        print(controlDir);
-        if (CameraSwitching.IsIn3D)
+        if (!CameraSwitching.IsIn3D)
         {
             controlDir.y = 0;
         }
 
         Vector3 tempVel = new Vector3(controlDir.x, _rigidBody.velocity.y, controlDir.y);
-
         _rigidBody.velocity = tempVel * _moveSpeed;
     }
 }
