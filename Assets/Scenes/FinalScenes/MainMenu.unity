@@ -1082,6 +1082,7 @@ GameObject:
   - component: {fileID: 1248505798}
   - component: {fileID: 1248505797}
   - component: {fileID: 1248505801}
+  - component: {fileID: 1248505802}
   m_Layer: 5
   m_Name: MainMenuCanvas
   m_TagString: Untagged
@@ -1186,7 +1187,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25ce0f9eef96a694ea8ab40504f7fa6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShowingMainMenuUI: {fileID: 0}
+--- !u!95 &1248505802
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248505796}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3adc97f6b3b3bcc4e84a2f437c0116d6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1280448340
 GameObject:
   m_ObjectHideFlags: 0
