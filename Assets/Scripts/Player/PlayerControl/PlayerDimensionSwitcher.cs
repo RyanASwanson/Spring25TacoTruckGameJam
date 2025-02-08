@@ -57,6 +57,9 @@ public class PlayerDimensionSwitcher : MonoBehaviour
         float dist = _hitboxDepth;
         if (Physics.BoxCast(transform.position, Vector3.one*.3f, Vector3.back, out RaycastHit hit, Quaternion.identity, _hitboxDepth, _wallBlockers))
         {
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
             float newDist = Vector3.Distance(transform.position, hit.point);
             if (newDist < dist)
@@ -65,7 +68,10 @@ public class PlayerDimensionSwitcher : MonoBehaviour
             }
         }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
         if (Physics.BoxCast(transform.position, Vector3.one*.3f, Vector3.forward, out RaycastHit hit1, Quaternion.identity, _hitboxDepth, _wallBlockers))
         {
             float newDist = Vector3.Distance(transform.position, hit1.point);
