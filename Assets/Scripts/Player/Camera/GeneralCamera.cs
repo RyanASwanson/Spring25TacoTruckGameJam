@@ -7,6 +7,7 @@ public class GeneralCamera : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        transform.position = PlayerMovement.Instance.transform.position;
         StartCoroutine(FollowPlayer());
     }
 

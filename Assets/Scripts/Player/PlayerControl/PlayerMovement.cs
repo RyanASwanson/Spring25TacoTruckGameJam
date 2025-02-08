@@ -103,7 +103,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FloorCheck()
     {
-        if (_movementState == PlayerMovementState.Ragdoll) return;
+        if (_movementState == PlayerMovementState.Ragdoll || WallRayCast()) return;
 
         if (Physics.Raycast(transform.position, Vector2.down, .75f, LayerMask.GetMask(FLOOR_LAYER)))
         {
@@ -119,15 +119,20 @@ public class PlayerMovement : MonoBehaviour
 
     private void WallCheck()
     {
-        if (_movementState != PlayerMovementState.Ragdoll) return;
+        if (_movementState == PlayerMovementState.Ragdoll) return;
 
-        if (Physics.Raycast(transform.position, transform.forward, .75f, LayerMask.GetMask(CLIMBABLE_WALL_LAYER)))
+        if (WallRayCast())
         {
             _movementState = PlayerMovementState.Climb;
             _rigidBody.useGravity = false;
         }
 
         _rigidBody.useGravity = true;
+    }
+
+    private bool WallRayCast()
+    {
+        return Physics.Raycast(transform.position, transform.forward, .75f, LayerMask.GetMask(CLIMBABLE_WALL_LAYER));
     }
 
     private void OnCollisionEnter(Collision collision)

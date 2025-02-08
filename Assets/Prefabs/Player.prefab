@@ -51,7 +51,7 @@ MonoBehaviour:
   _moveSpeed: 3
   _jumpForce: 6
   _rotationDuration: 0.2
-  _climbSpeed: 50
+  _climbSpeed: 4
   _childHitbox: {fileID: 5907361723419578487}
 --- !u!54 &7082956266197790647
 Rigidbody:
