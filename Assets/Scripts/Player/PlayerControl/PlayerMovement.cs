@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _jumpForce = 5f;
     [SerializeField] private float _rotationDuration = 0.2f;
     [SerializeField] private float _climbSpeed;
+    [SerializeField] private float _climbMantleSpeed;
     [SerializeField] private float _launchTime = 0.2f;
     
     private Rigidbody _rigidBody;
@@ -34,6 +35,14 @@ public class PlayerMovement : MonoBehaviour
 
     private bool _canJump = true;
     private bool _jumpQueued = false;
+    private bool _atWallMax = false;
+
+    private bool _wallMaxApplied = false;
+
+    [SerializeField] private float _regrabWallWait;
+    private bool _canClimb = true;
+
+    private bool _temp = false;
 
     private bool _shouldLaunch = false;
     private Vector3 _launchForce = Vector3.zero;
@@ -93,11 +102,10 @@ public class PlayerMovement : MonoBehaviour
 
         if (_canJump)
         {
-            print("jump");
             _canJump = false;
             _jumpQueued = true;
-            Tween.PunchScale(transform.GetChild(0), new Vector3(.1f, .5f, .1f), .3f);
-            Tween.PunchLocalRotation(transform.GetChild(0), new Vector3(-30, 0, 0), .5f);
+            Tween.PunchScale(transform.GetChild(0).GetChild(0), new Vector3(.1f, .5f, .1f), .3f);
+            Tween.PunchLocalRotation(transform.GetChild(0).GetChild(0), new Vector3(-30, 0, 0), .5f);
         }
     }
 
@@ -111,7 +119,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (_movementState == PlayerMovementState.Ragdoll || WallRayCast()) return;
 
-        if (Physics.Raycast(transform.position, Vector2.down, .75f, LayerMask.GetMask(FLOOR_LAYER)))
+        if (Physics.Raycast(transform.position, Vector2.down, .75f, LayerMask.GetMask(FLOOR_LAYER)) ||
+            Physics.Raycast(transform.position, Vector2.down, .75f, LayerMask.GetMask(CLIMBABLE_WALL_LAYER)))
         {
             _canJump = true;
         }
@@ -125,15 +134,20 @@ public class PlayerMovement : MonoBehaviour
 
     private void WallCheck()
     {
-        if (_movementState == PlayerMovementState.Ragdoll) return;
+        if (!_canClimb || _movementState == PlayerMovementState.Ragdoll) return;
 
         if (WallRayCast())
         {
             _movementState = PlayerMovementState.Climb;
             _rigidBody.useGravity = false;
         }
-
-        _rigidBody.useGravity = true;
+        else if (_movementState == PlayerMovementState.Climb)
+        {
+            _movementState = PlayerMovementState.Walk;
+            _rigidBody.useGravity = true;
+            _rigidBody.AddForce(_climbMantleSpeed * Vector3.up);
+            _temp = true;
+        }
     }
 
     private bool WallRayCast()
@@ -157,7 +171,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector3 tempVel;
+        Vector3 tempVel = _rigidBody.velocity;
 
         if (_shouldLaunch)
         {
@@ -166,9 +180,18 @@ public class PlayerMovement : MonoBehaviour
             Invoke(nameof(ResetLaunch), _launchTime);
         }
 
+        if(_atWallMax)
+        {
+            
+            return;
+        }
+
         if (_movementState == PlayerMovementState.Climb)
         {
-            tempVel = new Vector3(_rigidBody.velocity.x, _climbSpeed, _rigidBody.velocity.z);
+            if (_rigidBody.velocity.y < _climbSpeed)
+            {
+                tempVel = new Vector3(_rigidBody.velocity.x, _climbSpeed, _rigidBody.velocity.z);
+            }
         }
         else
         {
