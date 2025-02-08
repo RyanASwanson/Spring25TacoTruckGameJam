@@ -815,6 +815,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StartingMicrowave
       objectReference: {fileID: 0}
+    - target: {fileID: 5709271638271707818, guid: a085b95c3cf009149a8187c146b4e746, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8696695026358711588, guid: a085b95c3cf009149a8187c146b4e746, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.53
