@@ -29,6 +29,11 @@ public class PlayerDimensionSwitcher : MonoBehaviour
         _playerCollider.size = new Vector3(_playerCollider.size.x, _playerCollider.size.y, _hitboxDepth);
     }
 
+    private void DetermineNearestWall()
+    {
+        //float dist = 
+    }
+
     private void SwitchTo3D()
     {
         _playerCollider.size = new Vector3(_playerCollider.size.x, _playerCollider.size.y, _defaultHitboxDepth);

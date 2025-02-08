@@ -51,6 +51,7 @@ MonoBehaviour:
   _moveSpeed: 3
   _jumpForce: 6
   _rotationDuration: 0.2
+  _climbSpeed: 4
   _childHitbox: {fileID: 5907361723419578487}
 --- !u!54 &7082956266197790647
 Rigidbody:
@@ -164,7 +165,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2300410386739801190}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 8a114a6dd90cc79419c2b7d388298117, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
