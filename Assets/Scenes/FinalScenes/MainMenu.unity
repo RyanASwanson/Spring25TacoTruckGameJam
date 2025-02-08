@@ -3166,8 +3166,8 @@ MonoBehaviour:
   _associatedUI: {fileID: 1120409539}
   _changeGroupAlpha: 0
   _animateUI: 1
-  _animateInTrigger: OpenCredits
-  _animateOutTrigger: CloseCredits
+  _animateInTrigger: OpenControls
+  _animateOutTrigger: CloseControls
 --- !u!1 &1339431681
 GameObject:
   m_ObjectHideFlags: 0
@@ -3972,8 +3972,8 @@ MonoBehaviour:
   _associatedUI: {fileID: 1280448342}
   _changeGroupAlpha: 0
   _animateUI: 1
-  _animateInTrigger: OpenControls
-  _animateOutTrigger: CloseControls
+  _animateInTrigger: OpenCredits
+  _animateOutTrigger: CloseCredits
 --- !u!1 &1967240403
 GameObject:
   m_ObjectHideFlags: 0
