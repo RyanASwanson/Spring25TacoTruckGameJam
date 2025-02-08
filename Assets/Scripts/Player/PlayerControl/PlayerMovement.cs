@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _rotationDuration = 0.2f;
     
     private Rigidbody _rigidBody;
+    [SerializeField] private Transform _childHitbox;
 
     private Vector2 controlDir;
     private Vector2 lastMovementDir;
@@ -50,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
             lastMovementDir = controlDir;
             controlDir = tempDir;
             Tween.Rotation(transform, Quaternion.LookRotation(new Vector3(controlDir.x, 0, controlDir.y)), _rotationDuration);
+            Tween.Rotation(_childHitbox, Quaternion.LookRotation(Vector3.zero), _rotationDuration);
         }
     }
 
@@ -58,6 +60,7 @@ public class PlayerMovement : MonoBehaviour
         controlDir = Vector2.zero;
         _rigidBody.velocity = new Vector3(0, _rigidBody.velocity.y, 0);
         Tween.StopAll(transform);
+        Tween.StopAll(_childHitbox);
     }
     
     private void Jump()
