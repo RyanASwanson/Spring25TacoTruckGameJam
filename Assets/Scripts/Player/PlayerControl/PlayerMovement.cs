@@ -280,12 +280,14 @@ public class PlayerMovement : MonoBehaviour
                 if (!_stretched)
                 {
                     _stretched = true;
+                    AudioManager.Instance.PlayOneShotSound("Move1");
                     yield return Tween.Scale(transform.GetChild(0).GetChild(0),
                         new Vector3(1.2f, .8f, 1.2f), _moveAnimSpeed).ToYieldInstruction();
                 }
                 else
                 {
                     _stretched = false;
+                    AudioManager.Instance.PlayOneShotSound("Move2");
                     yield return Tween.Scale(transform.GetChild(0).GetChild(0),
                         new Vector3(1f, 1f, 1f), _moveAnimSpeed).ToYieldInstruction();
                 }
