@@ -23,9 +23,15 @@ public class PlayerMovement : MonoBehaviour
     private bool _canJump = true;
     private bool _jumpQueued = false;
 
+    private const string FLOOR_LAYER = "Floor";
+
+    public static PlayerMovement Instance;
+
     // Start is called before the first frame update
     void Awake()
     {
+        Instance = this;
+
         _rigidBody = GetComponent<Rigidbody>();
 
         _playerCameraInput = new PlayerCameraInputActionMap();
@@ -69,12 +75,14 @@ public class PlayerMovement : MonoBehaviour
         {
             _canJump = false;
             _jumpQueued = true;
+            Tween.PunchScale(transform.GetChild(0), new Vector3(.1f, .5f, .1f), .3f);
+            Tween.PunchLocalRotation(transform.GetChild(0), new Vector3(-30, 0, 0), .5f);
         }
     }
 
     private void Update()
     {
-        if (Physics.Raycast(transform.position, Vector2.down, 1.75f, LayerMask.GetMask("Floor")))
+        if (Physics.Raycast(transform.position, Vector2.down, 1.75f, LayerMask.GetMask(FLOOR_LAYER)))
         {
             _canJump = true;
         }
@@ -82,6 +90,11 @@ public class PlayerMovement : MonoBehaviour
         {
             _canJump = false;
         }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        
     }
 
     private void FixedUpdate()

@@ -26,6 +26,8 @@ public class UIShowHide : MonoBehaviour
 
         _associatedUI.alpha = _showingAssociatedUI ? 1 : 0;
 
+        MainMenuController.Instance.ShowingMainMenuUI = _showingAssociatedUI ? this : null;
+
         if (!_animateUI) return;
 
         if(_showingAssociatedUI)
