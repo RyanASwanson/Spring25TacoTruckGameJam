@@ -22,7 +22,7 @@ public class DialogueFunctionality : MonoBehaviour
 
     public void OutroAnimation()
     {
+        _animator.SetTrigger(AnimationOutTrigger);
         Destroy(gameObject, 3f);
-        _animator.SetTrigger(AnimationInTrigger);
     }
 }
