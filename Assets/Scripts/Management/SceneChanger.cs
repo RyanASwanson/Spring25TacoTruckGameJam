@@ -53,5 +53,4 @@ public class SceneChanger : MonoBehaviour
 
         _eventSystem.enabled = true;
     }
-
 }

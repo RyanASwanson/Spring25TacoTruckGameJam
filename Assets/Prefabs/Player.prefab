@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2596928304825769797}
   - component: {fileID: 7082956266197790647}
   - component: {fileID: 6390251093843407497}
+  - component: {fileID: 1862743013691113190}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -55,6 +56,7 @@ MonoBehaviour:
   _climbMantleSpeed: 100
   _launchTime: 0.2
   _childHitbox: {fileID: 5907361723419578487}
+  _regrabWallWait: 0
 --- !u!54 &7082956266197790647
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -99,6 +101,18 @@ MonoBehaviour:
   _wallBlockers:
     serializedVersion: 2
     m_Bits: 193
+--- !u!114 &1862743013691113190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19190612424628541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea52270a8e79f374eab1df09d9b023b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1982683967352568466
 GameObject:
   m_ObjectHideFlags: 0

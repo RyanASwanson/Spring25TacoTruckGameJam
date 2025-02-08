@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/FinalScenes/MainMenu.unity
     guid: bc8fb9bf88153514d98867fea4964eba
   - enabled: 1
-    path: Assets/Scenes/FinalScenes/Level1.unity
-    guid: 1a40cf8ae6716f546839dac3794d8159
+    path: Assets/Scenes/LevelBlockout.unity
+    guid: 0ed94990dfdd1ec438290b62919b412e
   m_configObjects: {}

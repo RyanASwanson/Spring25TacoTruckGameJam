@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class MainMenuController : MonoBehaviour
     void Start()
     {
         Instance = this;
+        SceneManager.LoadScene(1, LoadSceneMode.Additive);
     }
 
     private PlayerCameraInputActionMap _controls;
@@ -25,10 +27,11 @@ public class MainMenuController : MonoBehaviour
         _controls.MainMenu.Enable();
         _controls.MainMenu.Back.started += CloseCurrentMenu;
     }
-
+    
     private void OnDestroy()
     {
         _controls.MainMenu.Back.started -= CloseCurrentMenu;
+        _controls.MainMenu.Disable();
     }
 
     private void CloseCurrentMenu(InputAction.CallbackContext context)

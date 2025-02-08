@@ -48,6 +48,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 _launchForce = Vector3.zero;
     private bool _isBeingLaunched = false;
 
+    private bool _canMove = false;
+
     private PlayerMovementState _movementState = PlayerMovementState.Walk;
 
     private const string FLOOR_LAYER = "Floor";
@@ -59,15 +61,20 @@ public class PlayerMovement : MonoBehaviour
     void Awake()
     {
         Instance = this;
+    }
 
+    public void EnablePlayerControls()
+    {
         _rigidBody = GetComponent<Rigidbody>();
-
+        
         _playerCameraInput = new PlayerCameraInputActionMap();
         _playerCameraInput.Camera.Enable();
         _playerCameraInput.Player.Enable();
         _playerCameraInput.Player.Movement.performed += PlayerMovementInput;
         _playerCameraInput.Player.Movement.canceled += ctx => HaltMovement();
         _playerCameraInput.Player.Jump.performed += ctx => Jump();
+
+        _canMove = true;
     }
 
     private void OnDestroy()
@@ -171,47 +178,53 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector3 tempVel = _rigidBody.velocity;
-
-        if (_shouldLaunch)
+        if (_canMove)
         {
-            _shouldLaunch = false;
-            _rigidBody.AddForce(_launchForce, ForceMode.Impulse);
-            Invoke(nameof(ResetLaunch), _launchTime);
-        }
+            Vector3 tempVel = _rigidBody.velocity;
 
-        if(_atWallMax)
-        {
-            
-            return;
-        }
-
-        if (_movementState == PlayerMovementState.Climb)
-        {
-            if (_rigidBody.velocity.y < _climbSpeed)
+            if (_shouldLaunch)
             {
-                tempVel = new Vector3(_rigidBody.velocity.x, _climbSpeed, _rigidBody.velocity.z);
-            }
-        }
-        else
-        {
-            if (!CameraSwitching.IsIn3D)
-            {
-                controlDir.y = 0;
+                _shouldLaunch = false;
+                _rigidBody.AddForce(_launchForce, ForceMode.Impulse);
+                Invoke(nameof(ResetLaunch), _launchTime);
             }
 
-            tempVel = new Vector3(controlDir.x * _moveSpeed, _rigidBody.velocity.y, controlDir.y * _moveSpeed);
-
-            if (_jumpQueued)
+            if (_atWallMax)
             {
-                _jumpQueued = false;
-                tempVel.y = _jumpForce;
+
+                return;
             }
+
+            if (_movementState == PlayerMovementState.Climb)
+            {
+                if (_rigidBody.velocity.y < _climbSpeed)
+                {
+                    tempVel = new Vector3(_rigidBody.velocity.x, _climbSpeed, _rigidBody.velocity.z);
+                }
+            }
+            else
+            {
+                if (!CameraSwitching.IsIn3D)
+                {
+                    controlDir.y = 0;
+                }
+
+                tempVel = new Vector3(controlDir.x * _moveSpeed, _rigidBody.velocity.y, controlDir.y * _moveSpeed);
+
+                if (_jumpQueued)
+                {
+                    _jumpQueued = false;
+                    tempVel.y = _jumpForce;
+                }
+            }
+
+            if (_isBeingLaunched)
+            {
+                return;
+            }
+
+            _rigidBody.velocity = tempVel;
         }
-
-        if (_isBeingLaunched) { return; }
-
-        _rigidBody.velocity = tempVel;
     }
 
     public void ReceiveKnockback(float force, Vector3 direction)

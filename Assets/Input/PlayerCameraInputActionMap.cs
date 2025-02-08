@@ -166,6 +166,33 @@ public partial class @PlayerCameraInputActionMap: IInputActionCollection2, IDisp
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""RotateMicrowaveRight"",
+                    ""type"": ""Button"",
+                    ""id"": ""ea219621-08bf-468b-9529-de085e9df221"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""RotateMicrowaveLeft"",
+                    ""type"": ""Button"",
+                    ""id"": ""38fd97c8-e3b7-446c-9baa-3ae895c500e2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""StopMicrowave"",
+                    ""type"": ""Button"",
+                    ""id"": ""8c93d285-0548-4c9d-a287-03c132c952bd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -190,6 +217,39 @@ public partial class @PlayerCameraInputActionMap: IInputActionCollection2, IDisp
                     ""action"": ""Back"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0a87f7b4-b837-4c16-b806-3c23d7cd791f"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RotateMicrowaveRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9da6b3a8-4dbc-44fe-a715-2c26dfd91f1e"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RotateMicrowaveLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4a00b1c3-6a6e-4309-99eb-bb8c1a5fefea"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""StopMicrowave"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -206,6 +266,9 @@ public partial class @PlayerCameraInputActionMap: IInputActionCollection2, IDisp
         // MainMenu
         m_MainMenu = asset.FindActionMap("MainMenu", throwIfNotFound: true);
         m_MainMenu_Back = m_MainMenu.FindAction("Back", throwIfNotFound: true);
+        m_MainMenu_RotateMicrowaveRight = m_MainMenu.FindAction("RotateMicrowaveRight", throwIfNotFound: true);
+        m_MainMenu_RotateMicrowaveLeft = m_MainMenu.FindAction("RotateMicrowaveLeft", throwIfNotFound: true);
+        m_MainMenu_StopMicrowave = m_MainMenu.FindAction("StopMicrowave", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -368,11 +431,17 @@ public partial class @PlayerCameraInputActionMap: IInputActionCollection2, IDisp
     private readonly InputActionMap m_MainMenu;
     private List<IMainMenuActions> m_MainMenuActionsCallbackInterfaces = new List<IMainMenuActions>();
     private readonly InputAction m_MainMenu_Back;
+    private readonly InputAction m_MainMenu_RotateMicrowaveRight;
+    private readonly InputAction m_MainMenu_RotateMicrowaveLeft;
+    private readonly InputAction m_MainMenu_StopMicrowave;
     public struct MainMenuActions
     {
         private @PlayerCameraInputActionMap m_Wrapper;
         public MainMenuActions(@PlayerCameraInputActionMap wrapper) { m_Wrapper = wrapper; }
         public InputAction @Back => m_Wrapper.m_MainMenu_Back;
+        public InputAction @RotateMicrowaveRight => m_Wrapper.m_MainMenu_RotateMicrowaveRight;
+        public InputAction @RotateMicrowaveLeft => m_Wrapper.m_MainMenu_RotateMicrowaveLeft;
+        public InputAction @StopMicrowave => m_Wrapper.m_MainMenu_StopMicrowave;
         public InputActionMap Get() { return m_Wrapper.m_MainMenu; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -385,6 +454,15 @@ public partial class @PlayerCameraInputActionMap: IInputActionCollection2, IDisp
             @Back.started += instance.OnBack;
             @Back.performed += instance.OnBack;
             @Back.canceled += instance.OnBack;
+            @RotateMicrowaveRight.started += instance.OnRotateMicrowaveRight;
+            @RotateMicrowaveRight.performed += instance.OnRotateMicrowaveRight;
+            @RotateMicrowaveRight.canceled += instance.OnRotateMicrowaveRight;
+            @RotateMicrowaveLeft.started += instance.OnRotateMicrowaveLeft;
+            @RotateMicrowaveLeft.performed += instance.OnRotateMicrowaveLeft;
+            @RotateMicrowaveLeft.canceled += instance.OnRotateMicrowaveLeft;
+            @StopMicrowave.started += instance.OnStopMicrowave;
+            @StopMicrowave.performed += instance.OnStopMicrowave;
+            @StopMicrowave.canceled += instance.OnStopMicrowave;
         }
 
         private void UnregisterCallbacks(IMainMenuActions instance)
@@ -392,6 +470,15 @@ public partial class @PlayerCameraInputActionMap: IInputActionCollection2, IDisp
             @Back.started -= instance.OnBack;
             @Back.performed -= instance.OnBack;
             @Back.canceled -= instance.OnBack;
+            @RotateMicrowaveRight.started -= instance.OnRotateMicrowaveRight;
+            @RotateMicrowaveRight.performed -= instance.OnRotateMicrowaveRight;
+            @RotateMicrowaveRight.canceled -= instance.OnRotateMicrowaveRight;
+            @RotateMicrowaveLeft.started -= instance.OnRotateMicrowaveLeft;
+            @RotateMicrowaveLeft.performed -= instance.OnRotateMicrowaveLeft;
+            @RotateMicrowaveLeft.canceled -= instance.OnRotateMicrowaveLeft;
+            @StopMicrowave.started -= instance.OnStopMicrowave;
+            @StopMicrowave.performed -= instance.OnStopMicrowave;
+            @StopMicrowave.canceled -= instance.OnStopMicrowave;
         }
 
         public void RemoveCallbacks(IMainMenuActions instance)
@@ -421,5 +508,8 @@ public partial class @PlayerCameraInputActionMap: IInputActionCollection2, IDisp
     public interface IMainMenuActions
     {
         void OnBack(InputAction.CallbackContext context);
+        void OnRotateMicrowaveRight(InputAction.CallbackContext context);
+        void OnRotateMicrowaveLeft(InputAction.CallbackContext context);
+        void OnStopMicrowave(InputAction.CallbackContext context);
     }
 }
