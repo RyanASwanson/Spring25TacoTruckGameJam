@@ -35,6 +35,7 @@ public class AudioManager : MonoBehaviour
 
         if (s == null) { return; }
 
+        s.source.Stop();
         s.source.PlayOneShot(s.clip);
     }
 
