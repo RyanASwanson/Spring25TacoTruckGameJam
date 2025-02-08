@@ -8,8 +8,6 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
 
-    // Needs one-shots, looping, and semi-persistent sounds
-    // Pitch variation
     [SerializeField] private Sound[] _sounds;
 
     private void Awake()
@@ -30,27 +28,27 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void PlayOneShotSound(string soundName)
+    public void PlayOneShotSound(string name)
     {
-        Sound s = Array.Find(_sounds, sound => sound.name == soundName);
+        Sound s = Array.Find(_sounds, sound => sound.soundName == name);
 
         if (s != null) { return; }
 
         s.source.PlayOneShot(s.clip);
     }
 
-    public void PlaySound(string soundName)
+    public void PlaySound(string name)
     {
-        Sound s = Array.Find(_sounds, sound => sound.name == soundName);
+        Sound s = Array.Find(_sounds, sound => sound.soundName == name);
 
         if (s != null) { return; }
 
         s.source.Play();
     }
 
-    public void StopSound(string soundName)
+    public void StopSound(string name)
     {
-        Sound s = Array.Find(_sounds, sound => sound.name == soundName);
+        Sound s = Array.Find(_sounds, sound => sound.soundName == name);
 
         if (s != null) { return; }
 
