@@ -176,7 +176,9 @@ public class PlayerMovement : MonoBehaviour
 
     private bool WallRayCast(out RaycastHit hit)
     {
-        bool hitWall =Physics.Raycast(transform.position, transform.GetChild(0).forward, out hit, 0.75f, LayerMask.GetMask(CLIMBABLE_WALL_LAYER));
+        bool hitWall =Physics.Raycast(
+            new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z),
+            transform.GetChild(0).forward, out hit, 0.75f, LayerMask.GetMask(CLIMBABLE_WALL_LAYER));
         return hitWall;
     }
 
