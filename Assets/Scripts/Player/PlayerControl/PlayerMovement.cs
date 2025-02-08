@@ -94,7 +94,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        
+        if (!CameraSwitching.IsIn3D&&collision.gameObject.layer == LayerMask.NameToLayer(FLOOR_LAYER))
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, collision.gameObject.transform.position.z);
+        }
     }
 
     private void FixedUpdate()
