@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _climbSpeed;
     [SerializeField] private float _climbMantleSpeed;
     [SerializeField] private float _launchTime = 0.2f;
+    [SerializeField] private float _moveAnimSpeed = 0.3f;
     
     private Rigidbody _rigidBody;
     [SerializeField] private Transform _childHitbox;
@@ -55,6 +56,8 @@ public class PlayerMovement : MonoBehaviour
 
     public static PlayerMovement Instance;
 
+    private bool _stretched = false;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -66,14 +69,20 @@ public class PlayerMovement : MonoBehaviour
         _playerCameraInput.Camera.Enable();
         _playerCameraInput.Player.Enable();
         _playerCameraInput.Player.Movement.performed += PlayerMovementInput;
+        _playerCameraInput.Player.Movement.performed += ctx => StartCoroutine(nameof(MovementAnimation));
         _playerCameraInput.Player.Movement.canceled += ctx => HaltMovement();
+        _playerCameraInput.Player.Movement.canceled += ctx => StopAllCoroutines();
+        _playerCameraInput.Player.Movement.canceled += ctx => ResetStretch();
         _playerCameraInput.Player.Jump.performed += ctx => Jump();
     }
 
     private void OnDestroy()
     {
         _playerCameraInput.Player.Movement.performed -= PlayerMovementInput;
+        _playerCameraInput.Player.Movement.performed -= ctx => StartCoroutine(nameof(MovementAnimation));
         _playerCameraInput.Player.Movement.canceled -= ctx => HaltMovement();
+        _playerCameraInput.Player.Movement.canceled -= ctx => StopAllCoroutines();
+        _playerCameraInput.Player.Movement.canceled -= ctx => ResetStretch();
         _playerCameraInput.Player.Jump.performed -= ctx => Jump();
     }
 
@@ -253,5 +262,30 @@ public class PlayerMovement : MonoBehaviour
     {
         _isBeingLaunched = false;
         _movementState = PlayerMovementState.Walk;
+    }
+
+    IEnumerator MovementAnimation()
+    {
+        while (true)
+        {
+            if (!_stretched)
+            {
+                _stretched = true;
+                yield return Tween.Scale(transform.GetChild(0).GetChild(0),
+                    new Vector3(1.2f, .8f, 1.2f), _moveAnimSpeed).ToYieldInstruction();
+            }
+            else
+            {
+                _stretched = false;
+                yield return Tween.Scale(transform.GetChild(0).GetChild(0),
+                    new Vector3(1f, 1f, 1f), _moveAnimSpeed).ToYieldInstruction();
+            }
+        }
+    }
+
+    private void ResetStretch()
+    {
+        _stretched = false;
+        Tween.Scale(transform.GetChild(0).GetChild(0), new Vector3(1f, 1f, 1f), .3f, Ease.Default, 1, CycleMode.Yoyo);
     }
 }
