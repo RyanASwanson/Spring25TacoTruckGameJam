@@ -33,8 +33,8 @@ public class AudioManager : MonoBehaviour
     {
         Sound s = Array.Find(_sounds, sound => sound.soundName == name);
 
-        //if (s != null) { return; }
-        Debug.Log("Play One");
+        if (s == null) { return; }
+
         s.source.PlayOneShot(s.clip);
     }
 
@@ -42,8 +42,8 @@ public class AudioManager : MonoBehaviour
     {
         Sound s = Array.Find(_sounds, sound => sound.soundName == name);
 
-        //if (s != null) { return; }
-        Debug.Log("Play sound");
+        if (s == null) { return; }
+
         s.source.Play();
     }
 
@@ -51,8 +51,8 @@ public class AudioManager : MonoBehaviour
     {
         Sound s = Array.Find(_sounds, sound => sound.soundName == name);
 
-        //if (s != null) { return; }
-        Debug.Log("Stop sound");
+        if (s == null) { return; }
+
         s.source.Stop();
     }
 }
