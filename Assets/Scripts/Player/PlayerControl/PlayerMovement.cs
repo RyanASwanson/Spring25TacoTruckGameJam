@@ -19,12 +19,12 @@ public class PlayerMovement : MonoBehaviour
 
         _playerCameraInput = new PlayerCameraInputActionMap();
         _playerCameraInput.Camera.Enable();
-        _playerCameraInput.Camera.SwitchView.started += PlayerMovementInput;
+        _playerCameraInput.Player.Movement.started += PlayerMovementInput;
     }
 
     private void OnDestroy()
     {
-        _playerCameraInput.Camera.SwitchView.started -= PlayerMovementInput;
+        _playerCameraInput.Player.Movement.started -= PlayerMovementInput;
     }
 
     private void PlayerMovementInput(InputAction.CallbackContext context)
@@ -34,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        print(controlDir);
         if (CameraSwitching.IsIn3D)
         {
             controlDir.y = 0;
