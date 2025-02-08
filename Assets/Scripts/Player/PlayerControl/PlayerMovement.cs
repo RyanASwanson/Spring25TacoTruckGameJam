@@ -159,7 +159,6 @@ public class PlayerMovement : MonoBehaviour
 
         if (_shouldLaunch)
         {
-            Debug.Log("force applied");
             _shouldLaunch = false;
             _rigidBody.AddForce(_launchForce, ForceMode.Impulse);
             Invoke(nameof(ResetLaunch), _launchTime);
@@ -192,14 +191,15 @@ public class PlayerMovement : MonoBehaviour
 
     public void ReceiveKnockback(float force, Vector3 direction)
     {
-        Debug.Log("Knockback acknowledged");
         _launchForce = direction * force;
         _shouldLaunch = true;
         _isBeingLaunched = true;
+        _movementState = PlayerMovementState.Ragdoll;
     }
 
     private void ResetLaunch()
     {
         _isBeingLaunched = false;
+        _movementState = PlayerMovementState.Walk;
     }
 }

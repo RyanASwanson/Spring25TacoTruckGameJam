@@ -296,7 +296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _knockbackForce: 50
-  _knockbackDirection: {x: 0, y: 0, z: -1}
+  _knockbackDirection: {x: 1, y: 0, z: 0}
 --- !u!65 &6654396006752324742
 BoxCollider:
   m_ObjectHideFlags: 0
