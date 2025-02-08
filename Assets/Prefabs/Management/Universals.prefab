@@ -437,5 +437,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventSystem: {fileID: 8158531078716442927}
-  _sceneLoadTime: 75
+  _sceneLoadTime: 0.75
   _animator: {fileID: 6708768408663414791}

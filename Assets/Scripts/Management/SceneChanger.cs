@@ -11,7 +11,7 @@ public class SceneChanger : MonoBehaviour
 
     [Space]
     [Header("Scene Transitions")]
-    [SerializeField] private int _sceneLoadTime;
+    [SerializeField] private float _sceneLoadTime;
 
     [Space]
     [SerializeField] private Animator _animator;
