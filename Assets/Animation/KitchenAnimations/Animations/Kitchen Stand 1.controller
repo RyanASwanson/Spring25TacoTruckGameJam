@@ -4,8 +4,7 @@
 AnimatorController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   m_Name: Kitchen Stand 1
   serializedVersion: 5
   m_AnimatorParameters: []
@@ -24,11 +23,10 @@ AnimatorController:
     m_Controller: {fileID: 9100000}
 --- !u!1102 &1102031513450362478
 AnimatorState:
-  serializedVersion: 6
+  serializedVersion: 5
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   m_Name: KS_Open
   m_Speed: 1
   m_CycleOffset: 0
@@ -50,11 +48,10 @@ AnimatorState:
   m_TimeParameter: 
 --- !u!1102 &1102363163811504132
 AnimatorState:
-  serializedVersion: 6
+  serializedVersion: 5
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   m_Name: KS_Close
   m_Speed: 1
   m_CycleOffset: 0
@@ -76,16 +73,15 @@ AnimatorState:
   m_TimeParameter: 
 --- !u!1107 &1107703593470842094
 AnimatorStateMachine:
-  serializedVersion: 6
+  serializedVersion: 5
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   m_Name: Base Layer
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 1102031513450362478}
-    m_Position: {x: 370, y: 150, z: 0}
+    m_Position: {x: 372, y: 132, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102363163811504132}
     m_Position: {x: 372, y: 72, z: 0}
