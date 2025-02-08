@@ -448,14 +448,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Universals
       objectReference: {fileID: 0}
-    - target: {fileID: 3655826164263786699, guid: 7620ba41c475b244d83378ea3195d827, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3655826164263786699, guid: 7620ba41c475b244d83378ea3195d827, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4219437066127234615, guid: 7620ba41c475b244d83378ea3195d827, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
