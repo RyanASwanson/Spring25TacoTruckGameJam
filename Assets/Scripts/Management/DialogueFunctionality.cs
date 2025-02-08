@@ -25,6 +25,4 @@ public class DialogueFunctionality : MonoBehaviour
         Destroy(gameObject, 3f);
         _animator.SetTrigger(AnimationInTrigger);
     }
-
-
 }

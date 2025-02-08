@@ -42,8 +42,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _regrabWallWait;
     private bool _canClimb = true;
 
-    private bool _temp = false;
-
     private bool _shouldLaunch = false;
     private Vector3 _launchForce = Vector3.zero;
     private bool _isBeingLaunched = false;
@@ -117,7 +115,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FloorCheck()
     {
-        if (_movementState == PlayerMovementState.Ragdoll || WallRayCast()) return;
+        if (_movementState == PlayerMovementState.Ragdoll || WallRayCast(out RaycastHit hit)) return;
 
         if (Physics.Raycast(transform.position, Vector2.down, .75f, LayerMask.GetMask(FLOOR_LAYER)) ||
             Physics.Raycast(transform.position, Vector2.down, .75f, LayerMask.GetMask(CLIMBABLE_WALL_LAYER)))
@@ -136,23 +134,27 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!_canClimb || _movementState == PlayerMovementState.Ragdoll) return;
 
-        if (WallRayCast())
+        RaycastHit hit;
+
+        if (WallRayCast(out hit))
         {
             _movementState = PlayerMovementState.Climb;
             _rigidBody.useGravity = false;
+
+
         }
         else if (_movementState == PlayerMovementState.Climb)
         {
             _movementState = PlayerMovementState.Walk;
             _rigidBody.useGravity = true;
             _rigidBody.AddForce(_climbMantleSpeed * Vector3.up);
-            _temp = true;
         }
     }
 
-    private bool WallRayCast()
+    private bool WallRayCast(out RaycastHit hit)
     {
-        return Physics.Raycast(transform.position, transform.GetChild(0).forward, 0.75f, LayerMask.GetMask(CLIMBABLE_WALL_LAYER));
+        bool hitWall =Physics.Raycast(transform.position, transform.GetChild(0).forward, out hit, 0.75f, LayerMask.GetMask(CLIMBABLE_WALL_LAYER));
+        return hitWall;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -182,7 +184,6 @@ public class PlayerMovement : MonoBehaviour
 
         if(_atWallMax)
         {
-            
             return;
         }
 
