@@ -15,6 +15,7 @@ public class GeneralCamera : MonoBehaviour
         while(true)
         {
             transform.position = new Vector3(PlayerMovement.Instance.transform.position.x, transform.position.y, transform.position.z);
+            yield return null;
         }
     }
 }
