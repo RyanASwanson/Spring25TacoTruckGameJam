@@ -192,6 +192,94 @@ public partial class @PlayerCameraInputActionMap: IInputActionCollection2, IDisp
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Testing"",
+            ""id"": ""eb9267e1-6f15-499f-b903-73525133e1f4"",
+            ""actions"": [
+                {
+                    ""name"": ""PlayLoop"",
+                    ""type"": ""Button"",
+                    ""id"": ""3bf74f5d-c30e-4bd0-8234-56c1c3dcb1da"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PlayOneShot"",
+                    ""type"": ""Button"",
+                    ""id"": ""cb6da515-41a4-489f-9621-74cae820c1a7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PlaySound"",
+                    ""type"": ""Button"",
+                    ""id"": ""5969a2f1-9cd2-4baf-a36d-3614e949e39c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""StopSound"",
+                    ""type"": ""Button"",
+                    ""id"": ""8c7e30dd-4217-429c-abbf-59390fceae39"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""86f2b911-e12a-4aa8-ae59-c853c3e21294"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PlayLoop"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fdfcdde2-d259-4cd0-b417-f6ae5372b721"",
+                    ""path"": ""<Keyboard>/o"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PlayOneShot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""81d5a3a5-9541-46d9-992a-157acc85eaeb"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PlaySound"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2c195600-c6ec-4c75-8451-55bc1789af7d"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""StopSound"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -206,6 +294,12 @@ public partial class @PlayerCameraInputActionMap: IInputActionCollection2, IDisp
         // MainMenu
         m_MainMenu = asset.FindActionMap("MainMenu", throwIfNotFound: true);
         m_MainMenu_Back = m_MainMenu.FindAction("Back", throwIfNotFound: true);
+        // Testing
+        m_Testing = asset.FindActionMap("Testing", throwIfNotFound: true);
+        m_Testing_PlayLoop = m_Testing.FindAction("PlayLoop", throwIfNotFound: true);
+        m_Testing_PlayOneShot = m_Testing.FindAction("PlayOneShot", throwIfNotFound: true);
+        m_Testing_PlaySound = m_Testing.FindAction("PlaySound", throwIfNotFound: true);
+        m_Testing_StopSound = m_Testing.FindAction("StopSound", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -409,6 +503,76 @@ public partial class @PlayerCameraInputActionMap: IInputActionCollection2, IDisp
         }
     }
     public MainMenuActions @MainMenu => new MainMenuActions(this);
+
+    // Testing
+    private readonly InputActionMap m_Testing;
+    private List<ITestingActions> m_TestingActionsCallbackInterfaces = new List<ITestingActions>();
+    private readonly InputAction m_Testing_PlayLoop;
+    private readonly InputAction m_Testing_PlayOneShot;
+    private readonly InputAction m_Testing_PlaySound;
+    private readonly InputAction m_Testing_StopSound;
+    public struct TestingActions
+    {
+        private @PlayerCameraInputActionMap m_Wrapper;
+        public TestingActions(@PlayerCameraInputActionMap wrapper) { m_Wrapper = wrapper; }
+        public InputAction @PlayLoop => m_Wrapper.m_Testing_PlayLoop;
+        public InputAction @PlayOneShot => m_Wrapper.m_Testing_PlayOneShot;
+        public InputAction @PlaySound => m_Wrapper.m_Testing_PlaySound;
+        public InputAction @StopSound => m_Wrapper.m_Testing_StopSound;
+        public InputActionMap Get() { return m_Wrapper.m_Testing; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(TestingActions set) { return set.Get(); }
+        public void AddCallbacks(ITestingActions instance)
+        {
+            if (instance == null || m_Wrapper.m_TestingActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_TestingActionsCallbackInterfaces.Add(instance);
+            @PlayLoop.started += instance.OnPlayLoop;
+            @PlayLoop.performed += instance.OnPlayLoop;
+            @PlayLoop.canceled += instance.OnPlayLoop;
+            @PlayOneShot.started += instance.OnPlayOneShot;
+            @PlayOneShot.performed += instance.OnPlayOneShot;
+            @PlayOneShot.canceled += instance.OnPlayOneShot;
+            @PlaySound.started += instance.OnPlaySound;
+            @PlaySound.performed += instance.OnPlaySound;
+            @PlaySound.canceled += instance.OnPlaySound;
+            @StopSound.started += instance.OnStopSound;
+            @StopSound.performed += instance.OnStopSound;
+            @StopSound.canceled += instance.OnStopSound;
+        }
+
+        private void UnregisterCallbacks(ITestingActions instance)
+        {
+            @PlayLoop.started -= instance.OnPlayLoop;
+            @PlayLoop.performed -= instance.OnPlayLoop;
+            @PlayLoop.canceled -= instance.OnPlayLoop;
+            @PlayOneShot.started -= instance.OnPlayOneShot;
+            @PlayOneShot.performed -= instance.OnPlayOneShot;
+            @PlayOneShot.canceled -= instance.OnPlayOneShot;
+            @PlaySound.started -= instance.OnPlaySound;
+            @PlaySound.performed -= instance.OnPlaySound;
+            @PlaySound.canceled -= instance.OnPlaySound;
+            @StopSound.started -= instance.OnStopSound;
+            @StopSound.performed -= instance.OnStopSound;
+            @StopSound.canceled -= instance.OnStopSound;
+        }
+
+        public void RemoveCallbacks(ITestingActions instance)
+        {
+            if (m_Wrapper.m_TestingActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(ITestingActions instance)
+        {
+            foreach (var item in m_Wrapper.m_TestingActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_TestingActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public TestingActions @Testing => new TestingActions(this);
     public interface IPlayerActions
     {
         void OnMovement(InputAction.CallbackContext context);
@@ -421,5 +585,12 @@ public partial class @PlayerCameraInputActionMap: IInputActionCollection2, IDisp
     public interface IMainMenuActions
     {
         void OnBack(InputAction.CallbackContext context);
+    }
+    public interface ITestingActions
+    {
+        void OnPlayLoop(InputAction.CallbackContext context);
+        void OnPlayOneShot(InputAction.CallbackContext context);
+        void OnPlaySound(InputAction.CallbackContext context);
+        void OnStopSound(InputAction.CallbackContext context);
     }
 }
