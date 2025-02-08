@@ -1954,7 +1954,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Designer / Music
+  m_text: Designer / Audio
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c281bba36e05df740bbc9b619594440b, type: 2}
   m_sharedMaterial: {fileID: -6360070821862319521, guid: c281bba36e05df740bbc9b619594440b, type: 2}
@@ -2259,7 +2259,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Artist
+  m_text: Lead Artist
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c281bba36e05df740bbc9b619594440b, type: 2}
   m_sharedMaterial: {fileID: -6360070821862319521, guid: c281bba36e05df740bbc9b619594440b, type: 2}
