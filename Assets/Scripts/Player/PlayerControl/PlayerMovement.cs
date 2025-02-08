@@ -4,16 +4,18 @@ using System.Linq;
 using TMPro.EditorUtilities;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using PrimeTween;
 
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed = 1f;
     [SerializeField] private float _jumpForce = 5f;
+    [SerializeField] private float _rotationDuration = 0.2f;
     
     private Rigidbody _rigidBody;
 
     private Vector2 controlDir;
-    private Vector3 _movementInpulse;
+    private Vector2 lastMovementDir;
 
     private PlayerCameraInputActionMap _playerCameraInput;
 
@@ -42,13 +44,20 @@ public class PlayerMovement : MonoBehaviour
 
     private void PlayerMovementInput(InputAction.CallbackContext context)
     {
-        controlDir = context.ReadValue<Vector2>();
+        Vector2 tempDir = context.ReadValue<Vector2>();
+        if (tempDir != controlDir)
+        {
+            lastMovementDir = controlDir;
+            controlDir = tempDir;
+            Tween.Rotation(transform, Quaternion.LookRotation(new Vector3(controlDir.x, 0, controlDir.y)), _rotationDuration);
+        }
     }
 
     private void HaltMovement()
     {
         controlDir = Vector2.zero;
         _rigidBody.velocity = new Vector3(0, _rigidBody.velocity.y, 0);
+        Tween.StopAll(transform);
     }
     
     private void Jump()
