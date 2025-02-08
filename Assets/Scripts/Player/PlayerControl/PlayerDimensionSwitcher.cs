@@ -14,6 +14,7 @@ public class PlayerDimensionSwitcher : MonoBehaviour
     void Start()
     {
         _defaultHitboxDepth = _playerCollider.size.z;
+        _playerCollider.size = new Vector3(_playerCollider.size.x, _playerCollider.size.y, _hitboxDepth);
         SubscribeToEvents();
     }
 
