@@ -5,6 +5,7 @@ using TMPro.EditorUtilities;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using PrimeTween;
+using Unity.VisualScripting;
 
 public enum PlayerMovementState
 { 
@@ -20,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _jumpForce = 5f;
     [SerializeField] private float _rotationDuration = 0.2f;
     [SerializeField] private float _climbSpeed;
+    [SerializeField] private float _launchTime = 0.2f;
     
     private Rigidbody _rigidBody;
     [SerializeField] private Transform _childHitbox;
@@ -32,6 +34,10 @@ public class PlayerMovement : MonoBehaviour
 
     private bool _canJump = true;
     private bool _jumpQueued = false;
+
+    private bool _shouldLaunch = false;
+    private Vector3 _launchForce = Vector3.zero;
+    private bool _isBeingLaunched = false;
 
     private PlayerMovementState _movementState = PlayerMovementState.Walk;
 
@@ -153,6 +159,13 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 tempVel;
 
+        if (_shouldLaunch)
+        {
+            _shouldLaunch = false;
+            _rigidBody.AddForce(_launchForce, ForceMode.Impulse);
+            Invoke(nameof(ResetLaunch), _launchTime);
+        }
+
         if (_movementState == PlayerMovementState.Climb)
         {
             tempVel = new Vector3(_rigidBody.velocity.x, _climbSpeed, _rigidBody.velocity.z);
@@ -173,6 +186,22 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+        if (_isBeingLaunched) { return; }
+
         _rigidBody.velocity = tempVel;
+    }
+
+    public void ReceiveKnockback(float force, Vector3 direction)
+    {
+        _launchForce = direction * force;
+        _shouldLaunch = true;
+        _isBeingLaunched = true;
+        _movementState = PlayerMovementState.Ragdoll;
+    }
+
+    private void ResetLaunch()
+    {
+        _isBeingLaunched = false;
+        _movementState = PlayerMovementState.Walk;
     }
 }
