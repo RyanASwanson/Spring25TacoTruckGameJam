@@ -74,8 +74,8 @@ public class PlayerMovement : MonoBehaviour
         if (tempDir != controlDir)
         {
             controlDir = tempDir;
-            Tween.Rotation(transform, Quaternion.LookRotation(new Vector3(controlDir.x, 0, controlDir.y)), _rotationDuration);
-            Tween.Rotation(_childHitbox, Quaternion.LookRotation(Vector3.zero), _rotationDuration);
+            Tween.Rotation(transform.GetChild(0), Quaternion.LookRotation(new Vector3(controlDir.x, 0, controlDir.y)), _rotationDuration);
+            //Tween.Rotation(_childHitbox, Quaternion.LookRotation(Vector3.zero), _rotationDuration);
         }
     }
 
@@ -83,8 +83,8 @@ public class PlayerMovement : MonoBehaviour
     {
         controlDir = Vector2.zero;
         _rigidBody.velocity = new Vector3(0, _rigidBody.velocity.y, 0);
-        Tween.StopAll(transform);
-        Tween.StopAll(_childHitbox);
+        Tween.StopAll(transform.GetChild(0));
+        //Tween.StopAll(_childHitbox);
     }
     
     private void Jump()
@@ -145,6 +145,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer(FLOOR_LAYER))
         {
+            if (collision.GetContact(collision.contactCount-1).point.y > transform.position.y - .3f) return;
+
             if(!CameraSwitching.IsIn3D && collision.gameObject != _lastCollisionObject)
             {
                 transform.position = new Vector3(transform.position.x, transform.position.y, collision.gameObject.transform.position.z);
@@ -159,7 +161,6 @@ public class PlayerMovement : MonoBehaviour
 
         if (_shouldLaunch)
         {
-            Debug.Log("force applied");
             _shouldLaunch = false;
             _rigidBody.AddForce(_launchForce, ForceMode.Impulse);
             Invoke(nameof(ResetLaunch), _launchTime);
@@ -192,14 +193,15 @@ public class PlayerMovement : MonoBehaviour
 
     public void ReceiveKnockback(float force, Vector3 direction)
     {
-        Debug.Log("Knockback acknowledged");
         _launchForce = direction * force;
         _shouldLaunch = true;
         _isBeingLaunched = true;
+        _movementState = PlayerMovementState.Ragdoll;
     }
 
     private void ResetLaunch()
     {
         _isBeingLaunched = false;
+        _movementState = PlayerMovementState.Walk;
     }
 }
