@@ -199,7 +199,9 @@ public class PlayerMovement : MonoBehaviour
 
             if(!CameraSwitching.IsIn3D && collision.gameObject != _lastCollisionObject)
             {
-                transform.position = new Vector3(transform.position.x, transform.position.y, collision.gameObject.transform.position.z);
+                //transform.position = new Vector3(transform.position.x, transform.position.y, collision.gameObject.transform.position.z);
+                transform.position = new Vector3(transform.position.x, 
+                    transform.position.y, collision.GetContact(collision.contactCount-1).point.z);
             }
             _lastCollisionObject = collision.gameObject;
         }
