@@ -8,7 +8,7 @@ public class MainMenuController : MonoBehaviour
 {
     public static MainMenuController Instance;
 
-    public UIShowHide ShowingMainMenuUI;
+    internal UIShowHide ShowingMainMenuUI;
 
     // Start is called before the first frame update
     void Start()
