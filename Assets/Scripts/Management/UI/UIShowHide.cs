@@ -18,6 +18,8 @@ public class UIShowHide : MonoBehaviour
     private void Start()
     {
         _associatedAnimator = _associatedUI.GetComponent<Animator>();
+        if (_associatedAnimator == null)
+            _associatedAnimator = GetComponentInParent<Animator>();
     }
 
     public void ButtonPress()
