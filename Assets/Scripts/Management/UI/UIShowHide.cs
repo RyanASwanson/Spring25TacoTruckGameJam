@@ -14,10 +14,12 @@ public class UIShowHide : MonoBehaviour
     [SerializeField] private string _animateOutTrigger;
 
     private bool _showingAssociatedUI = false;
-    private Animator _associatedAnimator;
+    [SerializeField] private Animator _associatedAnimator;
 
     private void Start()
     {
+        if (_associatedAnimator != null) return;
+
         _associatedAnimator = _associatedUI.GetComponent<Animator>();
         if (_associatedAnimator == null)
             _associatedAnimator = GetComponentInParent<Animator>();
