@@ -1,7 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+
+#if UNITY_EDITOR
 using TMPro.EditorUtilities;
+#endif
+
 using UnityEngine;
 using UnityEngine.InputSystem;
 using PrimeTween;
