@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 309814834697587377}
   - component: {fileID: 6951991887222463293}
   - component: {fileID: 2742918748031714848}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TutorialPromptEnter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1928986161265030735}
   - component: {fileID: 1224805006481672352}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PopUpImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 1472079190517217508}
   - component: {fileID: 4335363498274622387}
   - component: {fileID: 4417423725869189868}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TutorialPrmptExit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -363,7 +363,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8456824527858817398}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TutorialPromptHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
