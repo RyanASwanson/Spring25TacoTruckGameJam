@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class CameraSwitching : MonoBehaviour
 {
+    [SerializeField] private bool _isOnMainMenu = false;
     [SerializeField] private GameObject _2DCamera;
     [SerializeField] private GameObject _3DCamera;
 
@@ -20,9 +21,12 @@ public class CameraSwitching : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        _playerCameraInput = new PlayerCameraInputActionMap();
-        _playerCameraInput.Camera.Enable();
-        _playerCameraInput.Camera.SwitchView.started += CameraShift;
+        if (!_isOnMainMenu)
+        {
+            _playerCameraInput = new PlayerCameraInputActionMap();
+            _playerCameraInput.Camera.Enable();
+            _playerCameraInput.Camera.SwitchView.started += CameraShift;
+        }
     }
 
     private void Start()
@@ -39,6 +43,7 @@ public class CameraSwitching : MonoBehaviour
 
     private void OnDestroy()
     {
+        _playerCameraInput.Disable();
         _playerCameraInput.Camera.SwitchView.started -= CameraShift;
 
         _on2DSwitchEvent.RemoveAllListeners();
