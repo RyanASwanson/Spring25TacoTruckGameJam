@@ -100,21 +100,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _activationDelay: 0
   _destroyOnCollision: 0
+  _spawnHint: {fileID: 7653064219894353352, guid: e18fe0b689b38d9479798e236f03167a, type: 3}
+  _dialogueFunctionality:
+    DialogueAudio: {fileID: 0}
+    DialogueLength: 9999
+    DialogueText: 'Tip: Use <color=#C2923F>SHIFT</color> to switch between 2D and
+      3D'
   _onPlayerContact:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3136676638725837750}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+      m_Calls: []
 --- !u!65 &2742918748031714848
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -319,13 +313,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _activationDelay: 0
   _destroyOnCollision: 0
+  _spawnHint: {fileID: 0}
+  _dialogueFunctionality:
+    DialogueAudio: {fileID: 0}
+    DialogueLength: 0
+    DialogueText: 
   _onPlayerContact:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3136676638725837750}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 6951991887222463293}
+        m_TargetAssemblyTypeName: EnvironmentalPlayerTrigger, Assembly-CSharp
+        m_MethodName: RemoveUIElement
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
