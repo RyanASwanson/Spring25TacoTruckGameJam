@@ -230,7 +230,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer(FLOOR_LAYER))
+        if (collision.gameObject.layer == LayerMask.NameToLayer(FLOOR_LAYER) || collision.gameObject.layer == LayerMask.NameToLayer(CLIMBABLE_WALL_LAYER))
         {
             if (collision.GetContact(collision.contactCount-1).point.y > transform.position.y - .2f) return;
 

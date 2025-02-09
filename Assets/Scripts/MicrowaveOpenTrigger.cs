@@ -21,6 +21,6 @@ public class MicrowaveOpenTrigger : MonoBehaviour
     private void EndSequence()
     {
         print("end sequence triggerd");
-        _microwaveAnimator.Play("MW_Open");
+        _microwaveAnimator.SetBool("MW_Open",true);
     }
 }
