@@ -33,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform _childHitbox;
 
     private Vector2 controlDir;
+    private float _storedZMovement = 0f;
 
     private GameObject _lastCollisionObject;
 
@@ -85,6 +86,8 @@ public class PlayerMovement : MonoBehaviour
         _playerCameraInput.Player.Movement.canceled += ctx => ResetStretch();
         _playerCameraInput.Player.Jump.performed += ctx => Jump();
 
+        CameraSwitching._on3DSwitchEvent.AddListener(() => controlDir.y = _storedZMovement);
+
         RespawnPoint = transform.position;
     }
 
@@ -97,6 +100,8 @@ public class PlayerMovement : MonoBehaviour
         _playerCameraInput.Player.Movement.canceled -= ctx => StopAllCoroutines();
         _playerCameraInput.Player.Movement.canceled -= ctx => ResetStretch();
         _playerCameraInput.Player.Jump.performed -= ctx => Jump();
+
+        CameraSwitching._on3DSwitchEvent.RemoveListener(() => controlDir.y = _storedZMovement);
     }
 
     private void PlayerMovementInput(InputAction.CallbackContext context)
@@ -107,6 +112,7 @@ public class PlayerMovement : MonoBehaviour
         if (tempDir != controlDir)
         {
             controlDir = tempDir;
+            _storedZMovement = controlDir.y;
             Tween.Rotation(transform.GetChild(0), Quaternion.LookRotation(new Vector3(controlDir.x, 0, controlDir.y)), _rotationDuration);
             //Tween.Rotation(_childHitbox, Quaternion.LookRotation(Vector3.zero), _rotationDuration);
         }
@@ -115,6 +121,7 @@ public class PlayerMovement : MonoBehaviour
     private void HaltMovement()
     {
         controlDir = Vector2.zero;
+        _storedZMovement = 0f;
         if (_rigidBody != null)
             _rigidBody.velocity = new Vector3(0, _rigidBody.velocity.y, 0);
         Tween.StopAll(transform.GetChild(0));

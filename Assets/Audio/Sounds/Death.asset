@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 47f47ca1c833a3042ae2765c789806dd, type: 3}
-  m_Name: Move1
+  m_Name: Death
   m_EditorClassIdentifier: 
-  soundName: Move1
-  clip: {fileID: 8300000, guid: 156175d994bb95e45b40235019a7e9cf, type: 3}
-  volume: 0.6
+  soundName: Death
+  clip: {fileID: 8300000, guid: cfa788ee719ef974ca47312b6a63c665, type: 3}
+  volume: 1
   pitch: 1
   shouldLoop: 0
   source: {fileID: 0}
