@@ -228,28 +228,38 @@ MonoBehaviour:
   AllDialogue:
   - DialogueAudio: {fileID: 0}
     DialogueLength: 7
-    DialogueText: Dialogue 1
+    DialogueText: Have you ever heard the tale of the immortal snail?
   - DialogueAudio: {fileID: 0}
     DialogueLength: 7
-    DialogueText: Dialogue 2
+    DialogueText: "You and an incredibly intelligent snail both receive $1,000,000\u2026
+      and immortality. However, you die if the snail ever touches you."
   - DialogueAudio: {fileID: 0}
     DialogueLength: 7
-    DialogueText: Dialogue 3
+    DialogueText: "\u2026Could there be a more cruel fate? Years become decades,
+      decades become centuries. One question always unanswered\u2026 Where is the
+      snail?"
   - DialogueAudio: {fileID: 0}
     DialogueLength: 7
-    DialogueText: Dialogue 4
+    DialogueText: What life is there to live when the very idea of this creature
+      is enough to poison an infinite well of time?
   - DialogueAudio: {fileID: 0}
     DialogueLength: 7
-    DialogueText: Dialogue 5
+    DialogueText: "So what do you do? Live a carefree life? What could a mere snail
+      do? Use your wealth to send the creature into the cosmos? Or do you prepare?
+      Lie in wait\u2026 patiently."
   - DialogueAudio: {fileID: 0}
     DialogueLength: 7
-    DialogueText: Dialogue 6
+    DialogueText: "One such victim chose to wait. For how long, even I do not know.
+      But eventually, his assailant did come. Yet\u2026 despite its power, it was
+      trapped."
   - DialogueAudio: {fileID: 0}
     DialogueLength: 7
     DialogueText: Dialogue 7
   - DialogueAudio: {fileID: 0}
     DialogueLength: 7
-    DialogueText: Dialogue 8
+    DialogueText: "The final irony of it all\u2026 this creature is doomed to the
+      same fate. Only\u2026 its immortality is perfect. How long has it sought out
+      its victims? How many more will there be? And\u2026 who, or what\u2026 is next?"
   DialoguePrefab: {fileID: 2059588441452283015, guid: 093b0a6b25951e24bb6944142b588deb, type: 3}
 --- !u!1 &2696612732441668469
 GameObject:

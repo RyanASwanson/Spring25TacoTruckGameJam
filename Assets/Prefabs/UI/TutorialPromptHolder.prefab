@@ -104,8 +104,8 @@ MonoBehaviour:
   _dialogueFunctionality:
     DialogueAudio: {fileID: 0}
     DialogueLength: 9999
-    DialogueText: 'Tip: Use <color=#C2923F>SHIFT</color> to switch between 2D and
-      3D'
+    DialogueText: 'Tip: Use <color=#C2923F>SHIFT</color> to switch between <color=#C2923F>2D</color>
+      and <color=#C2923F>3D</color>'
   _onPlayerContact:
     m_PersistentCalls:
       m_Calls: []
