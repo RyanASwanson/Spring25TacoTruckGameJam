@@ -68,6 +68,9 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        if (Instance != null && Instance != this)
+            Destroy(Instance);
+
         Instance = this;
 
         _rigidBody = GetComponent<Rigidbody>();
@@ -76,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
         _playerCameraInput.Camera.Enable();
         _playerCameraInput.Player.Enable();
         _playerCameraInput.Player.Movement.performed += PlayerMovementInput;
-        _playerCameraInput.Player.Movement.performed += ctx => StartCoroutine(nameof(MovementAnimation));
+        //_playerCameraInput.Player.Movement.performed += ctx => StartCoroutine(nameof(MovementAnimation));
         _playerCameraInput.Player.Movement.canceled += ctx => HaltMovement();
         _playerCameraInput.Player.Movement.canceled += ctx => StopAllCoroutines();
         _playerCameraInput.Player.Movement.canceled += ctx => ResetStretch();
@@ -85,8 +88,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnDestroy()
     {
+        _playerCameraInput.Disable();
         _playerCameraInput.Player.Movement.performed -= PlayerMovementInput;
-        _playerCameraInput.Player.Movement.performed -= ctx => StartCoroutine(nameof(MovementAnimation));
+        //_playerCameraInput.Player.Movement.performed -= ctx => StartCoroutine(nameof(MovementAnimation));
         _playerCameraInput.Player.Movement.canceled -= ctx => HaltMovement();
         _playerCameraInput.Player.Movement.canceled -= ctx => StopAllCoroutines();
         _playerCameraInput.Player.Movement.canceled -= ctx => ResetStretch();
@@ -95,6 +99,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void PlayerMovementInput(InputAction.CallbackContext context)
     {
+        StartCoroutine(nameof(MovementAnimation));
+
         Vector2 tempDir = context.ReadValue<Vector2>();
         if (tempDir != controlDir)
         {
@@ -107,7 +113,8 @@ public class PlayerMovement : MonoBehaviour
     private void HaltMovement()
     {
         controlDir = Vector2.zero;
-        _rigidBody.velocity = new Vector3(0, _rigidBody.velocity.y, 0);
+        if (_rigidBody != null)
+            _rigidBody.velocity = new Vector3(0, _rigidBody.velocity.y, 0);
         Tween.StopAll(transform.GetChild(0));
         //Tween.StopAll(_childHitbox);
     }
