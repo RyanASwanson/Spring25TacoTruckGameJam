@@ -57,6 +57,9 @@ MonoBehaviour:
   _moveAnimSpeed: 0.3
   _childHitbox: {fileID: 5907361723419578487}
   _regrabWallWait: 0
+  RespawnPoint: {x: 0, y: 0, z: 0}
+  _coyoteTime: 0.6
+  _jumpBuffer: 0.6
 --- !u!54 &7082956266197790647
 Rigidbody:
   m_ObjectHideFlags: 0
