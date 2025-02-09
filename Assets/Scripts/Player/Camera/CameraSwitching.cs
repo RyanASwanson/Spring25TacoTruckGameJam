@@ -54,10 +54,12 @@ public class CameraSwitching : MonoBehaviour
         if(!IsIn3D)
         {
             _on2DSwitchEvent?.Invoke();
+            AudioManager.Instance.PlayOneShotSound("Swap2D");
         }
         else
         {
             _on3DSwitchEvent?.Invoke();
+            AudioManager.Instance.PlayOneShotSound("Swap3D");
         }
     }
 
