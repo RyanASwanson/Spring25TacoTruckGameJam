@@ -63,6 +63,8 @@ public class PlayerMovement : MonoBehaviour
     private bool _stretched = false;
     private bool _isAnimatingMovement = false;
 
+    public Vector3 RespawnPoint = Vector3.zero;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -79,6 +81,8 @@ public class PlayerMovement : MonoBehaviour
         _playerCameraInput.Player.Movement.canceled += ctx => StopAllCoroutines();
         _playerCameraInput.Player.Movement.canceled += ctx => ResetStretch();
         _playerCameraInput.Player.Jump.performed += ctx => Jump();
+
+        RespawnPoint = transform.position;
     }
 
     private void OnDestroy()
@@ -308,5 +312,11 @@ public class PlayerMovement : MonoBehaviour
         _isAnimatingMovement = false;
         _stretched = false;
         Tween.Scale(transform.GetChild(0).GetChild(0), new Vector3(1f, 1f, 1f), .3f, Ease.Default, 1, CycleMode.Yoyo);
+    }
+
+    public void RespawnPlayer()
+    {
+        _rigidBody.velocity = Vector3.zero;
+        transform.position = RespawnPoint;
     }
 }

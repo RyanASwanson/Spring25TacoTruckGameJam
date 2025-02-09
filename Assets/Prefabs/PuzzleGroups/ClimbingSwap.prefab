@@ -30,9 +30,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5250151759605185733}
+  - {fileID: 7284862475111350700}
   - {fileID: 786204761151650319}
   - {fileID: 7396742074960916813}
-  - {fileID: 7284862475111350700}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2689861676959162663
@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 973303483920148193}
   - component: {fileID: 3291719501830094124}
   m_Layer: 7
-  m_Name: Cube (4)
+  m_Name: FirstClimb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -153,7 +153,7 @@ GameObject:
   - component: {fileID: 7609209667916915358}
   - component: {fileID: 3320553754168606389}
   m_Layer: 6
-  m_Name: Cube (1)
+  m_Name: SecondFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -258,7 +258,7 @@ GameObject:
   - component: {fileID: 8674543574145134134}
   - component: {fileID: 7413670186532224668}
   m_Layer: 6
-  m_Name: Cube
+  m_Name: FirstFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -273,8 +273,8 @@ Transform:
   m_GameObject: {fileID: 8227822456108121908}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.21, y: 6.3956146, z: -3.67}
-  m_LocalScale: {x: 10.3, y: 1, z: 6}
+  m_LocalPosition: {x: -0.81, y: 6.3956146, z: -3.67}
+  m_LocalScale: {x: 17.5, y: 1, z: 6}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 424426183649046595}
@@ -363,7 +363,7 @@ GameObject:
   - component: {fileID: 904382551523912358}
   - component: {fileID: 4051402098336909821}
   m_Layer: 7
-  m_Name: Cube (3)
+  m_Name: SecondClimb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

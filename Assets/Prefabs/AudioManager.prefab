@@ -46,9 +46,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sounds:
-  - {fileID: 11400000, guid: ffdc0b6a31183574ebd1ffcd65f30cce, type: 2}
-  - {fileID: 11400000, guid: 714e5b6bc463a0041815d7f70baa04b2, type: 2}
-  - {fileID: 11400000, guid: 9b33e566c9b4fd543892625fd95cbe04, type: 2}
+  - {fileID: 11400000, guid: 5576fd0a5d719a4439ff9ec1ca632095, type: 2}
+  - {fileID: 11400000, guid: e58b3a72d52c4ed41a22f6d2f63efffb, type: 2}
+  - {fileID: 11400000, guid: a81a0f5d2be0b1b40a6d93a3453d675d, type: 2}
+  - {fileID: 11400000, guid: f957c4f007540184a9e7273de0d5f3fd, type: 2}
+  - {fileID: 11400000, guid: 31cb6ced0a22ed946a2a687f347e5f9a, type: 2}
+  - {fileID: 11400000, guid: 768d9a66426f5de478206a7a0c944e95, type: 2}
 --- !u!114 &8309373618848208620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56,7 +59,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4244378680892290299}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: afb65f5a3879f97448decae7a5f16070, type: 3}
   m_Name: 
