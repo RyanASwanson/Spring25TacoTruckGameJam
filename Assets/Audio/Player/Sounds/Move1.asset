@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundName: Move1
   clip: {fileID: 8300000, guid: 17f350e263b242a4899d9029b47d5b85, type: 3}
-  volume: 0.4
+  volume: 0.25
   pitch: 1
   shouldLoop: 0
   source: {fileID: 0}

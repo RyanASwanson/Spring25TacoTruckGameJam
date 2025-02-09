@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundName: Swap2D
   clip: {fileID: 8300000, guid: 442dbbe537e9a994ba62d7207d1ee8a5, type: 3}
-  volume: 0.7
+  volume: 0.5
   pitch: 1
   shouldLoop: 0
   source: {fileID: 0}
