@@ -10,6 +10,7 @@ public class ExitMicrowaveTrigger : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            AudioManager.Instance.PlayOneShotSound("Death");
             SceneChanger.Instance.LoadScene(_sceneIndexToLoad);
         }
     }
