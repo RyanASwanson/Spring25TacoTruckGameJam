@@ -66,6 +66,11 @@ public class PlayerMovement : MonoBehaviour
 
     public Vector3 RespawnPoint = Vector3.zero;
 
+    private float _coyoteTimeTimer = 0f;
+    [SerializeField] private float _coyoteTime = 0.5f;
+    private float _jumpBufferTimer = 0f;
+    [SerializeField] float _jumpBuffer = 0.2f;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -132,8 +137,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (_movementState != PlayerMovementState.Walk) return;
 
-        if (_canJump)
+        if (_canJump && _coyoteTimeTimer > 0f && _jumpBufferTimer <= 0f)
         {
+            _jumpBufferTimer = _jumpBuffer;
+            _coyoteTimeTimer = 0f;
             _canJump = false;
             _jumpQueued = true;
             Tween.PunchScale(transform.GetChild(0).GetChild(0), new Vector3(.1f, .5f, .1f), .3f);
@@ -145,6 +152,11 @@ public class PlayerMovement : MonoBehaviour
     {
         WallCheck();
         FloorCheck();
+
+        if (_jumpBufferTimer > 0f)
+        {
+            _jumpBufferTimer -= Time.deltaTime;
+        }
     }
 
     private void FloorCheck()
@@ -159,10 +171,11 @@ public class PlayerMovement : MonoBehaviour
                 Landed();
             }
             _canJump = true;
+            _coyoteTimeTimer = _coyoteTime;
         }
         else
         {
-            _canJump = false;
+            _coyoteTimeTimer -= Time.deltaTime;
         }
 
         _movementState = PlayerMovementState.Walk;
@@ -217,7 +230,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer(FLOOR_LAYER))
+        if (collision.gameObject.layer == LayerMask.NameToLayer(FLOOR_LAYER) || collision.gameObject.layer == LayerMask.NameToLayer(CLIMBABLE_WALL_LAYER))
         {
             if (collision.GetContact(collision.contactCount-1).point.y > transform.position.y - .2f) return;
 
