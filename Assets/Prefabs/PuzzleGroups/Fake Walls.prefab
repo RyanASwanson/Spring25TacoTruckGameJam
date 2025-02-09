@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8689168502137019922}
   - component: {fileID: 2832059152773757284}
   m_Layer: 6
-  m_Name: Cube (3)
+  m_Name: SecondPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 6953795269087157062}
   - component: {fileID: 7968783864322012180}
   m_Layer: 0
-  m_Name: Cube (4)
+  m_Name: FakeWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 6744124395059060966}
   - component: {fileID: 9019596286166629300}
   m_Layer: 6
-  m_Name: Cube (2)
+  m_Name: FirstPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -328,7 +328,7 @@ GameObject:
   - component: {fileID: 3098442727015915368}
   - component: {fileID: 6459656232508401340}
   m_Layer: 7
-  m_Name: Cube
+  m_Name: ClimbWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

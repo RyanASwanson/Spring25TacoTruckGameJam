@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 4213912609754049918}
   - component: {fileID: 8533262357045132140}
   m_Layer: 6
-  m_Name: Cube (2)
+  m_Name: ThirdJump
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -152,7 +152,7 @@ GameObject:
   - component: {fileID: 8330192189374984771}
   - component: {fileID: 4003647920394870108}
   m_Layer: 6
-  m_Name: Cube
+  m_Name: FirstJump
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -257,7 +257,7 @@ GameObject:
   - component: {fileID: 5397193585232247595}
   - component: {fileID: 3686094290096171399}
   m_Layer: 6
-  m_Name: Cube (1)
+  m_Name: SecondJump
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
