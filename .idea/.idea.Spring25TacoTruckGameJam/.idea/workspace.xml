@@ -5,28 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e57b8438-f2a3-4d45-a373-c43d9d17cfe6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Materials/Gray.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Materials/Gray.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Materials/LightBlue.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Materials/LightBlue.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Materials/WIndow.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Materials/WIndow.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Materials/White.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Materials/White.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Materials/Yellow.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Materials/Yellow.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/MicrowaveDoor/Mat_microwaveDoor.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/MicrowaveDoor/Mat_microwaveDoor.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/MicrowaveDoor/Materials/microwaveDoor_standardSurface1_BaseMap.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/MicrowaveDoor/Materials/microwaveDoor_standardSurface1_BaseMap.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/MicrowaveDoor/Materials/microwaveDoor_standardSurface1_MaskMap.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/MicrowaveDoor/Materials/microwaveDoor_standardSurface1_MaskMap.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/MicrowaveDoor/microwaveDoor.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/MicrowaveDoor/microwaveDoor.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/MicrowaveDoor/microwaveDoor_standardSurface1_BaseMap.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/MicrowaveDoor/microwaveDoor_standardSurface1_BaseMap.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/MicrowaveDoor/microwaveDoor_standardSurface1_MaskMap.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/MicrowaveDoor/microwaveDoor_standardSurface1_MaskMap.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/MicrowaveDoor/microwaveDoor_standardSurface1_Normal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/MicrowaveDoor/microwaveDoor_standardSurface1_Normal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Spring25TacoTruckGameJam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Spring25TacoTruckGameJam/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/KitchenAnimations/Animations/Fridge.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animation/KitchenAnimations/Animations/Fridge.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Materials/MicrowaveDoor.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Materials/MicrowaveDoor.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Materials/MicrowaveDoorOpen.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Materials/MicrowaveDoorOpen.anim.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/FinalScenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/FinalScenes/GameScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MicrowaveOpenTrigger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MicrowaveOpenTrigger.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +58,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Standalone Player.Start Unity">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.46f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath C:\Users\kotov\OneDrive\Documents\GitHub\Spring25TacoTruckGameJam -debugCodeOptimization" />

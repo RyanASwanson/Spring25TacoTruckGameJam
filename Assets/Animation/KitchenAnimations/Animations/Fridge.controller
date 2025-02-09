@@ -4,7 +4,8 @@
 AnimatorController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Fridge
   serializedVersion: 5
   m_AnimatorParameters: []
@@ -23,10 +24,11 @@ AnimatorController:
     m_Controller: {fileID: 9100000}
 --- !u!1102 &1102044907151342036
 AnimatorState:
-  serializedVersion: 5
+  serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: F_Close
   m_Speed: 1
   m_CycleOffset: 0
@@ -48,10 +50,11 @@ AnimatorState:
   m_TimeParameter: 
 --- !u!1102 &1102471652218502562
 AnimatorState:
-  serializedVersion: 5
+  serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: F_Open
   m_Speed: 1
   m_CycleOffset: 0
@@ -73,10 +76,11 @@ AnimatorState:
   m_TimeParameter: 
 --- !u!1107 &1107026225975048208
 AnimatorStateMachine:
-  serializedVersion: 5
+  serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Base Layer
   m_ChildStates:
   - serializedVersion: 1
@@ -84,7 +88,7 @@ AnimatorStateMachine:
     m_Position: {x: 288, y: 156, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102044907151342036}
-    m_Position: {x: 240, y: 60, z: 0}
+    m_Position: {x: 290, y: 70, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
