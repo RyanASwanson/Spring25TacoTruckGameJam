@@ -27,6 +27,10 @@ public class CameraSwitching : MonoBehaviour
             _playerCameraInput.Camera.Enable();
             _playerCameraInput.Camera.SwitchView.started += CameraShift;
         }
+        else
+        {
+            IsIn3D = true;
+        }
     }
 
     private void Start()
@@ -43,8 +47,11 @@ public class CameraSwitching : MonoBehaviour
 
     private void OnDestroy()
     {
-        _playerCameraInput.Disable();
-        _playerCameraInput.Camera.SwitchView.started -= CameraShift;
+        if (_playerCameraInput != null)
+        {
+            _playerCameraInput.Disable();
+            _playerCameraInput.Camera.SwitchView.started -= CameraShift;
+        }
 
         _on2DSwitchEvent.RemoveAllListeners();
         _on3DSwitchEvent.RemoveAllListeners();
