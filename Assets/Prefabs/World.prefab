@@ -230,22 +230,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bridge
       objectReference: {fileID: 0}
-    - target: {fileID: 4649762281934967911, guid: 42509fc4fefaef84a9f5d4056f219c72, type: 3}
-      propertyPath: m_VersionIndex
-      value: 3516
-      objectReference: {fileID: 0}
-    - target: {fileID: 7119138817157553574, guid: 42509fc4fefaef84a9f5d4056f219c72, type: 3}
-      propertyPath: m_VersionIndex
-      value: 3492
-      objectReference: {fileID: 0}
-    - target: {fileID: 7603093866906518408, guid: 42509fc4fefaef84a9f5d4056f219c72, type: 3}
-      propertyPath: m_VersionIndex
-      value: 3438
-      objectReference: {fileID: 0}
-    - target: {fileID: 8341612972335956494, guid: 42509fc4fefaef84a9f5d4056f219c72, type: 3}
-      propertyPath: m_VersionIndex
-      value: 3486
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -264,14 +248,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1940503819965935272}
     m_Modifications:
-    - target: {fileID: 533848887789208326, guid: 438bb6fe84b04ad439b326b03a7cf3f0, type: 3}
-      propertyPath: m_VersionIndex
-      value: 727
-      objectReference: {fileID: 0}
-    - target: {fileID: 1881784896550435685, guid: 438bb6fe84b04ad439b326b03a7cf3f0, type: 3}
-      propertyPath: m_VersionIndex
-      value: 781
-      objectReference: {fileID: 0}
     - target: {fileID: 5914731006297435973, guid: 438bb6fe84b04ad439b326b03a7cf3f0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 67.17
@@ -311,18 +287,6 @@ PrefabInstance:
     - target: {fileID: 5914731006297435973, guid: 438bb6fe84b04ad439b326b03a7cf3f0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5999175730695666991, guid: 438bb6fe84b04ad439b326b03a7cf3f0, type: 3}
-      propertyPath: m_VersionIndex
-      value: 696
-      objectReference: {fileID: 0}
-    - target: {fileID: 6121866289498375278, guid: 438bb6fe84b04ad439b326b03a7cf3f0, type: 3}
-      propertyPath: m_VersionIndex
-      value: 1252
-      objectReference: {fileID: 0}
-    - target: {fileID: 6771337300046721990, guid: 438bb6fe84b04ad439b326b03a7cf3f0, type: 3}
-      propertyPath: m_VersionIndex
-      value: 1167
       objectReference: {fileID: 0}
     - target: {fileID: 7018490250838100622, guid: 438bb6fe84b04ad439b326b03a7cf3f0, type: 3}
       propertyPath: m_Name
