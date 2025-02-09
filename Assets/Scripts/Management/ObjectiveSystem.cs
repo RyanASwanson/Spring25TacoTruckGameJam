@@ -12,10 +12,13 @@ public class ObjectiveSystem : MonoBehaviour
 
     public static ObjectiveSystem Instance;
 
+    private Animator _objectiveTextAnimator;
+
     private void Awake()
     {
         Instance = this;
 
+        _objectiveTextAnimator = GetComponent<Animator>();
         _objectiveText.text = _objectivesList[0];
     }
 
@@ -25,6 +28,7 @@ public class ObjectiveSystem : MonoBehaviour
         {
             _currentIndex = objectiveIndex;
             _objectiveText.text = _objectivesList[_currentIndex];
+            _objectiveTextAnimator.SetTrigger("ShouldRepeat");
         }
     }
 }
