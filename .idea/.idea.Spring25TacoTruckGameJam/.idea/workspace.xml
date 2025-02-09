@@ -5,7 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e57b8438-f2a3-4d45-a373-c43d9d17cfe6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Materials/Gray.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Materials/Gray.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Materials/LightBlue.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Materials/LightBlue.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Materials/WIndow.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Materials/WIndow.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Materials/White.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Materials/White.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Materials/Yellow.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Materials/Yellow.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/MicrowaveDoor/Mat_microwaveDoor.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/MicrowaveDoor/Mat_microwaveDoor.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/MicrowaveDoor/Materials/microwaveDoor_standardSurface1_BaseMap.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/MicrowaveDoor/Materials/microwaveDoor_standardSurface1_BaseMap.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/MicrowaveDoor/Materials/microwaveDoor_standardSurface1_MaskMap.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/MicrowaveDoor/Materials/microwaveDoor_standardSurface1_MaskMap.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/MicrowaveDoor/microwaveDoor.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/MicrowaveDoor/microwaveDoor.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/MicrowaveDoor/microwaveDoor_standardSurface1_BaseMap.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/MicrowaveDoor/microwaveDoor_standardSurface1_BaseMap.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/MicrowaveDoor/microwaveDoor_standardSurface1_MaskMap.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/MicrowaveDoor/microwaveDoor_standardSurface1_MaskMap.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/MicrowaveDoor/microwaveDoor_standardSurface1_Normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/MicrowaveDoor/microwaveDoor_standardSurface1_Normal.png.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/FinalScenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/FinalScenes/GameScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,18 +60,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "UpdatingLevel",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;UpdatingLevel&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.46f1\Editor\Unity.exe" />
