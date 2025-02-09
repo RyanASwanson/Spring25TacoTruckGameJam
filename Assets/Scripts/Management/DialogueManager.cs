@@ -17,7 +17,15 @@ public class DialogueManager : MonoBehaviour
 
     private void Start()
     {
-        Instance = this;
+        if(Instance ==null)
+        {
+            Instance = this;
+            print("UpdateDiag");
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void PlayNextMainDialogue()
