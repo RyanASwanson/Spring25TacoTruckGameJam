@@ -136,10 +136,11 @@ MonoBehaviour:
   AllDialogue:
   - DialogueAudio: {fileID: 0}
     DialogueLength: 5
-    DialogueText: I love dialogue
+    DialogueText: 'Tip: Use <color=#C2923F>SHIFT</color> to switch between 2D and
+      3D'
   - DialogueAudio: {fileID: 0}
-    DialogueLength: 10
-    DialogueText: I hate dialogue
+    DialogueLength: 5
+    DialogueText: 'Tip: Some walls allow you to <color=#C2923F>climb</color> up them'
   DialoguePrefab: {fileID: 2059588441452283015, guid: 093b0a6b25951e24bb6944142b588deb, type: 3}
 --- !u!1 &8418695605987118202
 GameObject:

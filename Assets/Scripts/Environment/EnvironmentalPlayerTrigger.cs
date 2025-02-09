@@ -10,15 +10,16 @@ public class EnvironmentalPlayerTrigger : MonoBehaviour
     private bool _hasContacted = false;
 
     [Space]
+    [SerializeField] private GameObject _spawnHint;
+    [SerializeField] private IndividualDialogue _dialogueFunctionality;
+    DialogueFunctionality _spawnedHint;
+    private bool _hasHintSpawned = false;
+
+    [Space]
     [SerializeField] private UnityEvent _onPlayerContact;
 
-    private const string PLAYER_TAG = "Player";
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private const string PLAYER_TAG = "Player";
 
     private void OnTriggerEnter(Collider other)
     {
@@ -40,10 +41,26 @@ public class EnvironmentalPlayerTrigger : MonoBehaviour
     {
         yield return new WaitForSeconds(_activationDelay);
         _onPlayerContact.Invoke();
+        SpawnUIElement();
 
         if(_destroyOnCollision)
         {
             Destroy(gameObject);
         }
+    }
+
+    public void SpawnUIElement()
+    {
+        if(_spawnHint != null && !_hasHintSpawned)
+        {
+            _hasHintSpawned = true;
+            _spawnedHint = Instantiate(_spawnHint, transform).GetComponentInChildren<DialogueFunctionality>();
+            _spawnedHint.PlayDialogue(_dialogueFunctionality);
+        }
+    }
+
+    public void RemoveUIElement()
+    {
+        _spawnedHint.OutroAnimation();
     }
 }
