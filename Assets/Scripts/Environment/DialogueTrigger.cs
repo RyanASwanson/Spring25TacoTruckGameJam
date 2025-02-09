@@ -11,6 +11,7 @@ public class DialogueTrigger : MonoBehaviour
         if (other.CompareTag(PLAYER_LAYER))
         {
             DialogueManager.Instance.PlayNextMainDialogue();
+            Destroy(gameObject);
         }
     }
 }
