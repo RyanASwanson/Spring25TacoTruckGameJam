@@ -30,10 +30,10 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5667237813645911008}
+  - {fileID: 4254423138138739153}
   - {fileID: 3018634776823970788}
   - {fileID: 8594283434932209526}
   - {fileID: 6121304805258683785}
-  - {fileID: 4254423138138739153}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &870529064694754434
@@ -49,7 +49,7 @@ GameObject:
   - component: {fileID: 2148859199286386576}
   - component: {fileID: 4235234388109952739}
   m_Layer: 6
-  m_Name: Cube (5)
+  m_Name: EndFLoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 6791045516967024933}
   - component: {fileID: 7519499011751783647}
   m_Layer: 7
-  m_Name: Cube (3)
+  m_Name: ClimbableWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 8450324150921015776}
   - component: {fileID: 6470952181878334213}
   m_Layer: 6
-  m_Name: Cube
+  m_Name: BaseFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -364,7 +364,7 @@ GameObject:
   - component: {fileID: 3757426035740075753}
   - component: {fileID: 4569299079710567123}
   m_Layer: 6
-  m_Name: Cube (1)
+  m_Name: FrontGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -469,7 +469,7 @@ GameObject:
   - component: {fileID: 2940739407390354353}
   - component: {fileID: 5736759308764871858}
   m_Layer: 6
-  m_Name: Cube (4)
+  m_Name: FrontWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
