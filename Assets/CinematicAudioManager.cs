@@ -29,7 +29,10 @@ public class CinematicAudioManager : MonoBehaviour
             sound.source.pitch = sound.pitch;
             sound.source.loop = sound.shouldLoop;
         }
-        
+    }
+
+    private void Start()
+    {
         foreach (var sound in CinematicTrack)
         {
             sound.source.Play();
