@@ -59,6 +59,8 @@ public class PlayerMovement : MonoBehaviour
     private bool _stretched = false;
     private bool _isAnimatingMovement = false;
 
+    public Vector3 RespawnPoint = Vector3.zero;
+
     // Start is called before the first frame update
     void Awake()
     {
