@@ -120,6 +120,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5226123832898819185, guid: 60d7dee83d3f1674e99e296bbac819db, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5669290022890309771, guid: 60d7dee83d3f1674e99e296bbac819db, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5800375755415570583, guid: 60d7dee83d3f1674e99e296bbac819db, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8418695605987118202, guid: 60d7dee83d3f1674e99e296bbac819db, type: 3}
       propertyPath: m_Name
       value: GameplayCanvas
