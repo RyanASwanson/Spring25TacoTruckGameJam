@@ -20,14 +20,6 @@ public class DialogueManager : MonoBehaviour
         Instance = this;
     }
 
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.U))
-        {
-            PlayNextMainDialogue();
-        }
-    }
-
     public void PlayNextMainDialogue()
     {
         if (_currentDialoguePosition < AllDialogue.Length)
@@ -35,6 +27,11 @@ public class DialogueManager : MonoBehaviour
             PlayDialogue(AllDialogue[_currentDialoguePosition]);
         }
         _currentDialoguePosition++;
+    }
+
+    public void ResetDialogueProgress()
+    {
+        _currentDialoguePosition = 0;
     }
 
     public void PlayDialogue(IndividualDialogue individualDialogue)
