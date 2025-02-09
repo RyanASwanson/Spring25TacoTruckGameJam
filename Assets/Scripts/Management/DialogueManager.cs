@@ -53,6 +53,8 @@ public class DialogueManager : MonoBehaviour
             _isDialogueActive = true;
             individualDialogue = _currentDialogueChain.Dequeue();
 
+            AudioManager.Instance.PlaySound(individualDialogue.DialogueAudio);
+
             GameObject newestDialogueGameObject = Instantiate(DialoguePrefab, transform);
             newestDialogueGameObject.GetComponent<DialogueFunctionality>().PlayDialogue(individualDialogue);
             yield return new WaitForSeconds(individualDialogue.DialogueLength);
@@ -69,7 +71,7 @@ public class DialogueManager : MonoBehaviour
 [System.Serializable]
 public class IndividualDialogue
 {
-    public AudioClip DialogueAudio;
+    public string DialogueAudio;
     public float DialogueLength;
     public string DialogueText;
 }

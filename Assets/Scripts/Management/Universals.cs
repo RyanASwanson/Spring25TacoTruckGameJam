@@ -7,11 +7,12 @@ public class Universals : MonoBehaviour
     public static Universals Instance;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if(Instance == null)
         {
             Instance = this;
+            transform.SetParent(null);
             DontDestroyOnLoad(gameObject);
         }
         else
