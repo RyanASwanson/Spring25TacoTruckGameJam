@@ -37,7 +37,8 @@ public class SceneChanger : MonoBehaviour
     
     public void LoadScene(int sceneID)
     {
-        StartCoroutine(SceneLoadingProcess(sceneID));
+        if (this != null)
+            StartCoroutine(SceneLoadingProcess(sceneID));
     }
 
     private IEnumerator SceneLoadingProcess(int sceneID)
