@@ -149,6 +149,7 @@ public class PlayerMovement : MonoBehaviour
     private void Landed()
     {
         Tween.PunchScale(transform.GetChild(0).GetChild(0), new Vector3(0, -.8f, 0), .15f);
+        AudioManager.Instance.PlayOneShotSound("Land");
         //Tween.PunchLocalRotation(transform.GetChild(0).GetChild(0), new Vector3(0, 0, 30), .5f);
     }
 
@@ -249,6 +250,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 _jumpQueued = false;
                 tempVel.y = _jumpForce;
+                AudioManager.Instance.PlayOneShotSound("Jump");
             }
         }
 
