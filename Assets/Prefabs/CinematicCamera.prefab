@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6746497963012987189}
   - component: {fileID: 7194951855593654517}
   - component: {fileID: 5065813580929453009}
+  - component: {fileID: 4026737580346971377}
   m_Layer: 0
   m_Name: CinematicCamera
   m_TagString: Untagged
@@ -105,3 +106,16 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4026737580346971377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2696732161190672023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 858d5b24ee884064c88b3a41d1a36fd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeObject: {fileID: 0}
