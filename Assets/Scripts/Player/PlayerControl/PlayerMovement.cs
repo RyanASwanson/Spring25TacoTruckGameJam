@@ -200,6 +200,8 @@ public class PlayerMovement : MonoBehaviour
 
             if(!CameraSwitching.IsIn3D && collision.gameObject != _lastCollisionObject)
             {
+                if (collision.GetContact(collision.contactCount -1).normal.y <= 0.5f) { return; }
+
                 float dir = Mathf.Clamp((collision.GetContact(collision.contactCount - 1).point.z - transform.position.z), -1, 1);
 
                 //transform.position = new Vector3(transform.position.x, transform.position.y, collision.gameObject.transform.position.z);
