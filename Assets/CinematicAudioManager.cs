@@ -9,7 +9,7 @@ public class CinematicAudioManager : MonoBehaviour
 {
     public static CinematicAudioManager Instance;
 
-    public Sound CinematicTrack;
+    public Sound[] CinematicTrack;
 
     private void Awake()
     {
@@ -21,15 +21,21 @@ public class CinematicAudioManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(this);
 
-        CinematicTrack.source = gameObject.AddComponent<AudioSource>();
-        CinematicTrack.source.clip = CinematicTrack.clip;
-        CinematicTrack.source.volume = CinematicTrack.volume;
-        CinematicTrack.source.pitch = CinematicTrack.pitch;
-        CinematicTrack.source.loop = CinematicTrack.shouldLoop;
+        foreach (var sound in CinematicTrack)
+        {
+            sound.source = gameObject.AddComponent<AudioSource>();
+            sound.source.clip = sound.clip;
+            sound.source.volume = sound.volume;
+            sound.source.pitch = sound.pitch;
+            sound.source.loop = sound.shouldLoop;
+        }
     }
 
     private void Start()
     {
-        CinematicTrack.source.Play();
+        foreach (var sound in CinematicTrack)
+        {
+            sound.source.Play();
+        }
     }
 }
