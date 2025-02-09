@@ -117,14 +117,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5030854980771633014}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
-  m_LocalPosition: {x: 0, y: 4, z: -5}
+  m_LocalRotation: {x: 0.2164396, y: 0, z: 0, w: 0.97629607}
+  m_LocalPosition: {x: 0, y: 4, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5983138497213211849}
   m_Father: {fileID: 7832492981007648201}
-  m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 25, y: 0, z: 0}
 --- !u!1 &5455142741195960076
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 5983138497213211849}
   - component: {fileID: 1151708188935688130}
   - component: {fileID: 9112440883935275615}
+  - component: {fileID: 2682120303858524525}
   m_Layer: 0
   m_Name: 3DCam
   m_TagString: MainCamera
@@ -217,6 +218,15 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5455142741195960076}
   m_Enabled: 1
+--- !u!45 &2682120303858524525
+Skybox:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5455142741195960076}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 2100000, guid: e6831925cc0e5294c8aeb5048fa7eb01, type: 2}
 --- !u!1 &8147741625882028054
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,6 +238,7 @@ GameObject:
   - component: {fileID: 2940330288076343221}
   - component: {fileID: 7121691492379806970}
   - component: {fileID: 5339326195040866171}
+  - component: {fileID: 4586106139534253278}
   m_Layer: 0
   m_Name: 2DCam
   m_TagString: MainCamera
@@ -309,3 +320,12 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8147741625882028054}
   m_Enabled: 1
+--- !u!45 &4586106139534253278
+Skybox:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8147741625882028054}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 2100000, guid: e6831925cc0e5294c8aeb5048fa7eb01, type: 2}

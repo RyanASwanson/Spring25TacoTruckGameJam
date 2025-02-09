@@ -1,18 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ObjectiveSystem : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] TextMeshProUGUI _objectiveText;
+    [SerializeField] string[] _objectivesList;
+
+    private int _currentIndex = 0;
+
+    public static ObjectiveSystem Instance;
+
+    private void Awake()
     {
-        
+        Instance = this;
+
+        _objectiveText.text = _objectivesList[0];
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateObjective(int objectiveIndex)
     {
-        
+        if (objectiveIndex == _currentIndex + 1 && objectiveIndex <= _objectivesList.Length)
+        {
+            _currentIndex = objectiveIndex;
+            _objectiveText.text = _objectivesList[_currentIndex];
+        }
     }
 }
