@@ -1211,7 +1211,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 671e58e0d0cc3074da692176011f3d17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sounds: []
+  CinematicTrack:
+  - {fileID: 11400000, guid: 3eda068f4048239429a3247e26afd69e, type: 2}
+  - {fileID: 11400000, guid: 768d9a66426f5de478206a7a0c944e95, type: 2}
 --- !u!4 &1036551892
 Transform:
   m_ObjectHideFlags: 0
