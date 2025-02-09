@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class CameraSwitching : MonoBehaviour
 {
@@ -22,6 +23,18 @@ public class CameraSwitching : MonoBehaviour
         _playerCameraInput = new PlayerCameraInputActionMap();
         _playerCameraInput.Camera.Enable();
         _playerCameraInput.Camera.SwitchView.started += CameraShift;
+    }
+
+    private void Start()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            IsIn3D = true;
+        }
+        else
+        {
+            IsIn3D = false;
+        }
     }
 
     private void OnDestroy()
