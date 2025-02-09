@@ -254,7 +254,7 @@ MonoBehaviour:
       trapped."
   - DialogueAudio: D7
     DialogueLength: 7
-    DialogueText: Dialogue 7
+    DialogueText: But the snail always finds its way.
   - DialogueAudio: D8
     DialogueLength: 7
     DialogueText: "The final irony of it all\u2026 this creature is doomed to the
