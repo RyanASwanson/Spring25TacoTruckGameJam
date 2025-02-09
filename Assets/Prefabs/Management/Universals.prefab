@@ -249,7 +249,9 @@ MonoBehaviour:
     DialogueText: Dialogue 7
   - DialogueAudio: {fileID: 0}
     DialogueLength: 7
-    DialogueText: Dialogue 8
+    DialogueText: "The final irony of it all\u2026 this creature is doomed to the
+      same fate. Only\u2026 its immortality is perfect. How long has it sought out
+      its victims? How many more will there be? And\u2026 who, or what\u2026 is next?"
   DialoguePrefab: {fileID: 2059588441452283015, guid: 093b0a6b25951e24bb6944142b588deb, type: 3}
 --- !u!1 &2696612732441668469
 GameObject:
