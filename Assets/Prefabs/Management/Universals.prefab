@@ -226,36 +226,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AllDialogue:
-  - DialogueAudio: {fileID: 0}
-    DialogueLength: 7
+  - DialogueAudio: D1
+    DialogueLength: 6
     DialogueText: Have you ever heard the tale of the immortal snail?
-  - DialogueAudio: {fileID: 0}
-    DialogueLength: 7
+  - DialogueAudio: D2
+    DialogueLength: 10
     DialogueText: "You and an incredibly intelligent snail both receive $1,000,000\u2026
       and immortality. However, you die if the snail ever touches you."
-  - DialogueAudio: {fileID: 0}
-    DialogueLength: 7
+  - DialogueAudio: D3
+    DialogueLength: 10
     DialogueText: "\u2026Could there be a more cruel fate? Years become decades,
       decades become centuries. One question always unanswered\u2026 Where is the
       snail?"
-  - DialogueAudio: {fileID: 0}
-    DialogueLength: 7
+  - DialogueAudio: D4
+    DialogueLength: 10
     DialogueText: What life is there to live when the very idea of this creature
       is enough to poison an infinite well of time?
-  - DialogueAudio: {fileID: 0}
-    DialogueLength: 7
+  - DialogueAudio: D5
+    DialogueLength: 10
     DialogueText: "So what do you do? Live a carefree life? What could a mere snail
       do? Use your wealth to send the creature into the cosmos? Or do you prepare?
       Lie in wait\u2026 patiently."
-  - DialogueAudio: {fileID: 0}
-    DialogueLength: 7
+  - DialogueAudio: D6
+    DialogueLength: 10
     DialogueText: "One such victim chose to wait. For how long, even I do not know.
       But eventually, his assailant did come. Yet\u2026 despite its power, it was
       trapped."
-  - DialogueAudio: {fileID: 0}
+  - DialogueAudio: D7
     DialogueLength: 7
     DialogueText: Dialogue 7
-  - DialogueAudio: {fileID: 0}
+  - DialogueAudio: D8
     DialogueLength: 7
     DialogueText: "The final irony of it all\u2026 this creature is doomed to the
       same fate. Only\u2026 its immortality is perfect. How long has it sought out
