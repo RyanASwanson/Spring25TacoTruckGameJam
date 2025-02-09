@@ -146,6 +146,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DesignKit
       objectReference: {fileID: 0}
+    - target: {fileID: 6424123346117911790, guid: 9ed6892292602f84083cfbb66575051e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6672313730063520285, guid: 9ed6892292602f84083cfbb66575051e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.8762264
@@ -184,6 +188,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6672313730063520285, guid: 9ed6892292602f84083cfbb66575051e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7444863791823081156, guid: 9ed6892292602f84083cfbb66575051e, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8150552564057933805, guid: 9ed6892292602f84083cfbb66575051e, type: 3}
