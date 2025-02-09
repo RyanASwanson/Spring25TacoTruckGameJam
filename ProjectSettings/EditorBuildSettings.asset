@@ -8,12 +8,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FinalScenes/MainMenu.unity
     guid: bc8fb9bf88153514d98867fea4964eba
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/FinalScenes/GameplayLevel.unity
     guid: 1a40cf8ae6716f546839dac3794d8159
   - enabled: 1
-    path: Assets/Scenes/Cinematics/EndScene.unity
-    guid: fbe1dce7136996443907ebb4424db67d
+    path: Assets/Scenes/FinalScenes/GameScene.unity
+    guid: d1e88669cc4689f43a2e04c2795f7170
+  - enabled: 1
+    path: Assets/Scenes/Cinematics/FirstEndScene.unity
+    guid: afca6b796cb0bc348a306adbfa4c42c6
   - enabled: 1
     path: Assets/Scenes/Cinematics/EndScene2.unity
     guid: 97d13e2026985a840a358531cf04de4d
