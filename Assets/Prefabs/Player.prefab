@@ -54,6 +54,7 @@ MonoBehaviour:
   _climbSpeed: 4
   _climbMantleSpeed: 100
   _launchTime: 0.2
+  _moveAnimSpeed: 0.3
   _childHitbox: {fileID: 5907361723419578487}
   _regrabWallWait: 0
 --- !u!54 &7082956266197790647
@@ -176,7 +177,7 @@ GameObject:
   - component: {fileID: 2785305078985961752}
   m_Layer: 8
   m_Name: Hitbox
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
